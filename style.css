@@ -1,0 +1,91 @@
+body{
+	display: flex;
+	flex-direction: column;
+	
+}
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+	color: blue;
+}
+
+ul{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+a{
+	text-decoration: none;
+}
+
+img{
+	position: relative;
+}
+
+
+nav{
+	height: 100px;
+}
+
+.diaporama{
+	display: flex;
+height: 200px;
+margin-bottom: 100px;
+margin-top: 100px;
+perspective: 800px;
+align-self: center;
+width: 77%;
+}
+
+.vignette{
+	width: 20%;
+	border: solid 2px black;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.select{
+	width: 20%;
+	transform: scale(1.5);
+	color: red;
+	border: solid 2px black;
+	background-color: rgba(0,0,0,0.5);
+}
+
+
+.sectionMap{
+	height: 500px;
+	display: flex;
+	margin-bottom: 20px;
+}
+
+iframe{
+	width: 75%;
+}
+
+.station{
+	width: 25%;
+	background-color: rgba(0,0,0,0.5);
+	border: 2px solid;
+}
+
+#preview, #next{
+	color: red;
+}
+
+footer{height: 100px;}
+
+
+#slide{
+	color: red;
+	transform: scale(1.5);
+}
+
+
+
+
+
+
