@@ -14,7 +14,9 @@ class Slider
 
 	//bouton gauche
 	var boutonIdLeft = document.getElementById(idButtonLeft);
-	boutonIdLeft.addEventListener("click", this.slideLeft);
+	boutonIdLeft.addEventListener("click", (e) => {
+            this.slideLeft();
+        });
 	//bouton droit
 	var boutonIdRight = document.getElementById(idButtonRight);
 	boutonIdRight.addEventListener("click", this.slideRight);			
@@ -33,7 +35,7 @@ class Slider
 	slideLeft ()
 
 	{
-		var x = this.getClassName();
+		var x = this.className;
 		console.log(x);
 		var y = this.getIdName;
 		// fonction appelée à chaque clic sur le bouton
