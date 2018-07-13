@@ -1,4 +1,4 @@
-Exercice 1 : Compter de 1 en 1
+/*Exercice 1 : Compter de 1 en 1
 
 for (var j = 0; j <= 100; j++) {
 	console.log(j);
@@ -181,3 +181,4 @@ main(nomRobots[i], nomRobots[i]);}
 
 main("robocop");
 
+*/

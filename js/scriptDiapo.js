@@ -19,50 +19,35 @@ class Slider
         });
 	//bouton droit
 	var boutonIdRight = document.getElementById(idButtonRight);
-	boutonIdRight.addEventListener("click", this.slideRight);			
+	boutonIdRight.addEventListener("click", (e) => {
+            this.slideRight();
+        });			
 	}
 
-	get getClassName() 
-	{
-    return this.className;
-  	}
-
-  	get getIdName() 
-	{
-    return this.idName;
-  	}
-
+	
 	slideLeft ()
 
 	{
 		var x = this.className;
-		console.log(x);
-		var y = this.getIdName;
+		var y = this.idName;
 		// fonction appelée à chaque clic sur le bouton
 		compteurL();
-		console.log(l);
 		
 		if(x[l+1].id === y && l>=0)
 		{
 			x[l+1].id = "";
 			x[l].id = y;
 		}
-
-
-
 	}
 
 	slideRight ()
 
 	{
 		
-		var x = sliderJS.getClassName;
-		var y = sliderJS.getIdName;
-		console.log(y);
+		var x = this.className;
+		var y = this.idName;
 		// fonction appelée à chaque clic sur le bouton
 		compteurR();
-		console.log(r);
-
 		
 		if(x[r-1].id === y && r<=4)
 		{
