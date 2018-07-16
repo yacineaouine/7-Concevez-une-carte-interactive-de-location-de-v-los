@@ -29,7 +29,7 @@
   </div>
 </nav>
 
-	<section class="diaporama">
+	<section class="diaporama" id="diapo">
 
     
 
@@ -52,28 +52,28 @@
 
 	<section class="sectionMap">
 			
-			<iframe src="map.html"></iframe>
+			<iframe src="map.html" id="map"></iframe>
 			
 		
-    		<aside id="demo" class="station">
+    		<aside class="station">
 
     			<h2>Détails de la station</h2>
-          
+          <div id="station" class="stationCorps"></div>
+          <div>signature</div>
+          <canvas id="signature"></canvas>
 
 
     		</aside>
 
+
 	</section>
 
-	<footer class="navbar-inverse">
 
-           
 
-	</footer>
-
-<script type="text/javascript" src="js/scriptDiapo.js"></script>
-     <script type="text/javascript" src="js/scriptData.js"></script>
-     <script type="text/javascript" src="js/scriptExo.js"></script>
+      <script type="text/javascript" src="js/ObjectSlider.js"></script>
+      <script type="text/javascript" src="js/ObjectSignature.js"></script>
+    
+     
 </body>
 
 </html>

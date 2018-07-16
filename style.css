@@ -76,13 +76,30 @@ iframe{
 	color: red;
 }
 
-footer{height: 100px;}
+
 
 
 #slide{
 	color: red;
 	transform: scale(1.5);
 }
+
+.stationCorps{
+	height: 60%;
+}
+
+#signature{
+	width: 290px;
+	height: 115px;
+	background-color: white;
+	cursor: url(image/cur1046.cur), auto;
+}
+
+aside {
+	display: flex;
+	flex-direction: column;
+}
+
 
 
 
