@@ -19,6 +19,7 @@ var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
  // Recupération des données avec la mouse
  var ifra = document.getElementById('map');
  ifra.addEventListener("click", (e) => function(e){console.log(e);});
+ console.log(stations[0].number);
 
  // Affichage des données JCDecaux
  for(var i=0; i<stations.length; i++)
@@ -27,6 +28,6 @@ var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
  {document.getElementById("underIframe").style.backgroundColor = "green";}
  else {document.getElementById("underIframe").style.backgroundColor = "red";}
   }
-  document.getElementById("underIframe").innerHTML += stations[0].status+'<br>'+stations[0].name+'<br>'+stations[0].address;
- console.log(stations);
+  document.getElementById("underIframe").innerHTML += stations[10].status+'<br>'+stations[10].name+'<br>'+stations[10].address;
+
 });

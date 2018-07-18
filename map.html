@@ -26,6 +26,7 @@
 
     <script type="text/javascript" src="js/ObjetAjax.js"></script>
     <script type="text/javascript">
+
       var ajaxGet = new ajaxCall("https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=4c0dd7bc629dffa5ae869d96fce6b4eec7760d7c", "GET", function (reponse) {
 
     // Transforme la réponse en tableau d'objets JavaScript
@@ -33,26 +34,61 @@
     var stations = JSON.parse(reponse);
 
     //création des marqueurs avec array JCDecaux
-    for (var i = 0; i < stations.length; i++) {
+    for (var i = 0; i < stations.length; i++)
+     {
+
           var lat = stations[i].position.lat;
           var lng = stations[i].position.lng;
           var latLng = new google.maps.LatLng(lat,lng);
           var iconBase = 'image/iconeVelo.png';
+          // creation des markers
           var marker = new google.maps.Marker({
             position: latLng,
             icon: iconBase,
             map: map
           });
+           //animation au click
+          marker.addListener('click', toggleBounce);
+          
+           function toggleBounce()
+                {
+            
+                    if (marker.getAnimation() !== null)
+                    {
+                    marker.setAnimation(null);
+                    } 
+                    else
+                    {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                    }               
+                  
+                 }
       }
 
-          console.log(marker[0]);
-          console.log(marker.position.lat(lat[0]));
-          console.log(marker.position.lng(lng[0]));
-
-          var markerDiv = iconBase.addEventListener("click", (e) => function(){alert('hello');});    
-          console.log(markerDiv);
-
+          
+           
+          
+                   
+          //creation du la vignette info
+            
+            var infoWindowOptions = {
+            content:
+            'salut'};
+           
+            
+            // creation de l'info sur la map
+            var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+           
+            //ajout ecouteur sur marker
+            google.maps.event.addListener(marker, 'click',  function() {
+                infoWindow.open(map, marker);
+            });
+                
 });
+
+
+     
+
     </script>
     <script>
       var map;
