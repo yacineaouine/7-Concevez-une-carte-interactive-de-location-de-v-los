@@ -34,6 +34,6 @@ class Signature
 
 	
 }
-var signatureJS = new Signature('signature', 'blue', 3, 3);
+
 
 

@@ -1,21 +1,29 @@
+
 body{
 	display: flex;
-	flex-direction: column;
-	
+	height: 786px;
 }
+
+header{
+	display: flex;
+	flex-direction: column;
+	height: 10px;
+}
+
 
 h1{
 	text-align: center;
+	background-color: rgba(46,52,57,0.5);
 }
 
 h2{
 	text-align: center;
-	color: blue;
 }
+
+
 
 ul{
 	list-style: none;
-	display: flex;
 	justify-content: center;
 }
 a{
@@ -28,71 +36,21 @@ img{
 
 
 nav{
-	height: 100px;
-}
-
-.diaporama{
 	display: flex;
-height: 200px;
-margin-bottom: 100px;
-margin-top: 100px;
-perspective: 800px;
-align-self: center;
-width: 77%;
+	flex-direction: column;
 }
 
-.vignette{
-	width: 20%;
-	border: solid 2px black;
+button{
+	background-color: rgba(46,52,57,1);
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	color: gray;
+}
+
+button:hover{
+	border: outset 1px rgba(46,52,57,1);
 	background-color: rgba(0,0,0,0.5);
-}
-
-.select{
-	width: 20%;
-	transform: scale(1.5);
-	color: red;
-	border: solid 2px black;
-	background-color: rgba(0,0,0,0.5);
-}
-
-
-.sectionMap{
-	height: 500px;
-	display: flex;
-	margin-bottom: 20px;
-}
-
-iframe{
-	width: 75%;
-}
-
-.station{
-	width: 25%;
-	background-color: rgba(0,0,0,0.5);
-	border: 2px solid;
-}
-
-#preview, #next{
-	color: red;
-}
-
-
-
-
-#slide{
-	color: red;
-	transform: scale(1.5);
-}
-
-.stationCorps{
-	height: 60%;
-}
-
-#signature{
-	width: 290px;
-	height: 115px;
-	background-color: white;
-	cursor: url(image/cur1046.cur), auto;
 }
 
 aside {
@@ -100,9 +58,215 @@ aside {
 	flex-direction: column;
 }
 
+#dashboard{
+padding: 0;
+}
+
+.diaporama, .section-tuto{
+display: flex;
+justify-content: center;
+margin-bottom: 100px;
+margin-top: 100px;
+perspective: 800px;
+align-self: center;
+}
+
+.vignette{
+	border: outset 1px black;
+	background-color: rgba(0,0,0,0.5);
+	height: 320px;
+	width: 400px;
+}
 
 
 
+.section-map{
+	height: 500px;
+	margin-bottom: 20px;
+}
+
+
+
+.station{
+
+	background-color: rgba(0,0,0,0.5);
+	border: 1px solid;
+	height: 375px;
+	display: flex;
+	align-items: center;
+}
+
+#preview, #next{
+	color: orange;
+}
+
+
+#slide{
+	color: orange;
+}
+
+.stationCorps{
+	height: 378px;
+}
+
+#signature{
+	background-color: white;
+	cursor: url(image/cur1046.cur), auto;
+	width: 100%;
+}
+
+
+
+#navigationMain{
+	padding: 0;
+	background-color: rgba(46,52,57,0.9);
+}
+
+#navigationSecond{
+	padding: 0;
+}
+
+
+#tuto{
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	border-radius: 2px;
+	border: groove 1px;
+	box-shadow: 5px 5px 5px 5px grey;
+}
+
+
+#container
+{
+	display: flex;
+	height: 100%;
+	padding: 0;
+}
+
+#section-title{
+	background-color: rgba(46,52,57,0.9);
+	height: 50px;
+	border: 1px outset rgba(46,52,57,1);
+}
+
+#section-main{
+	padding: 0;
+	background-color: rgb(238,240,243);
+}
+
+.dash{
+display: flex;
+justify-content: center;
+align-items: center;
+color: black;
+border: 1px outset rgba(46,52,57,1);
+height: 50px;
+font-size: 1.5em;
+}
+
+#navS-title{
+	background-color: rgba(0,192,158,1);
+	height: 50px;
+	border: outset 1px rgba(46,52,57,1);
+	color: white;
+	display: flex;
+	justify-content: center;
+}
+
+#section-title{
+border: outset rgba(46,52,57,1) 1px;
+color: rgba(0,192,158,1);
+}
+
+#tuto-title{
+	align-items: center;
+justify-content: center;
+}
+ #map-title{
+	align-items: center;
+justify-content: center;
+}
+ #compte-title{
+
+	align-items: center;
+justify-content: center;
+}
+
+.navP{
+	display: flex;
+	border: outset rgba(46,52,57,1) 1px;
+
+}
+
+.navS{
+	display: flex;
+	border: inset rgba(46,52,57,1) 1px;
+}
+
+
+
+#navS-body{
+background-color: #1d5162;
+opacity: 0.9;
+border: inset rgba(46,52,57,1) 1px;
+background-color: transparent;
+height: 267px;
+justify-content: center;
+}
+
+
+
+#section-corps{
+	margin: 10px;
+}
+
+.btnEtape{
+	background-color: transparent;
+	border: groove 1px rgba(243,244,247,1);
+}
+
+.btnEtape:hover{
+	background-color: rgba(243,244,247,1);
+}
+.btnEtape:focus{
+	background-color: orange;
+	color: white;
+}
+
+.hide{
+	display: none;
+}
+
+.show, #slide{
+	display: block;
+}
+
+#map{
+	height: 100%;
+}
+
+.stationDetails{
+	height: 60%;
+}
+
+#underIframe{
+	height: 90px;
+	width: 100%;
+	display: none;
+}
+
+#map:hover + #underIframe {
+	display: flex;
+} 
+
+#reserver{
+	display: none;
+}
+
+#btnReserver:focus + #reserver  {
+	display: flex;
+}
 
 
 

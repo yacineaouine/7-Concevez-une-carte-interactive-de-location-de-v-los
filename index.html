@@ -4,74 +4,174 @@
 	<title>VéloLibreService</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body>
- 	
- 	<header>
- 		<h1>VELO LIBRE SERVICE</h1>
- 	</header>
 
- 	<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">Velo Libre Service</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+
+  
+
+
+<!-- SECTION 1 DASHBOARD -->
+
+  <section class="col-md-8 col-sm-12 col-lg-4" id="dashboard">
+ 
+          <div class="container" id="container">
+
+              <div class="col-md-8 col-sm-12 col-lg-6" id="navigationMain">
+
+                
+              <div class="dash"><i class="fas fa-desktop"></i> &nbsp; Tableau de bord</div>
+              
+               
+
+             	<nav class="navP">
+
+                  <button type="button" ><i class="fas fa-bicycle"></i> Velo Libre Service</button>
+                  <button type="button" ><i class="fas fa-home"></i> Home</button>
+                  <button type="button" ><i class="fas fa-envelope"></i> Contact</button>
+ 
+              </nav>
+
+              <nav class="navS">
+
+                  <button type="button" id="btnTuto"><i class="far fa-eye"></i> Tutoriel</button>
+                  <button type="button" id="btnMap"><i class="fas fa-map-marker-alt"></i> Réserver un vélo</button>
+                  <button type="button" id="btnCompte"><i class="fas fa-address-card"></i> Mon Compte</button>
+
+              </nav>
+
+              </div>
+
+                <div class="col-md-8 col-sm-12 col-lg-6" id="navigationSecond">
+
+                  <div id="navS-title">
+
+                    <div id="tuto-title" class="hide">Tutoriel</div>
+                    <div id="map-title" class="btnMap hide">Réserver un vélo</div>
+                    <div id="compte-title" class="btnCompte hide">Mon Compte</div>
+
+                  </div>
+                
+                  <nav class="col-md-8 col-sm-12 col-lg-12 btnTuto hide"  id="navS-body">
+
+                    <button type="button" class="btnEtape" onclick=>Etape 1</button>
+                    <button type="button" class="btnEtape" onclick=>Etape 2</button>
+                    <button type="button" class="btnEtape" onclick=>Etape 3</button>
+                    <button type="button" class="btnEtape" onclick=>Etape 4</button>
+                    <button type="button" class="btnEtape" onclick=>Etape 5</button>
+
+                  </nav>
+
+                  <aside class="station">
+
+                      <h2>Détails de la station</h2>
+
+                      <div id="station" class="stationCorps">
+                          <div class="stationDetails"></div>  
+                      </div>
+
+                      <div>
+                      <button type="button" id="btnReserver"> Réserver</button>
+                      <div id="reserver">
+                      <canvas id="signature"></canvas>
+                      <button type="button"> Signature</button>
+                      </div>
+                      </div>
+
+                  </aside>
+
+                </div>
+
+          </div>
+
+</section>
+
+
+
+
+
+
+<!-- SECTION 2 PRINCIPALE -->
+<section class="col-md-8 col-sm-12 col-lg-8" id="section-main">
+
+  <!-- Section title -->
+  <div id="section-title"> 
+    <h2 class="divTuto hide" id="tuto-titre">Tutoriel</h2>
+    <h2 class="divMap hide" id="map-titre">Map</h2>
+    <h2 class="divCompte hide" id="compte-titre">Mon Compte</h2>
   </div>
-</nav>
 
-	<section class="diaporama" id="diapo">
 
+<!-- Section Corps -->
+<div id="section-corps">
+  <!-- Section 2.1 Tutoriel -->
+  <div class="col-md-8 col-sm-12 col-lg-12 divTuto hide" id="tuto">
+
+      <div class="diaporama" id="diapo">
+
+            <div class="vignette vignette1" id="slide"><h2>Etape 1</h2></div>
+            <div class="vignette vignette2 hide" ><h2>Etape 2</h2></div>
+            <div class="vignette vignette3 hide" ><h2>Etape 3</h2></div>
+            <div class="vignette vignette4 hide" ><h2>Etape 4</h2></div>
+            <div class="vignette vignette5 hide" ><h2>Etape 5</h2></div>
+
+      </div> 
+      
+      <div class="button" >
+
+            <button id="preview" class="navbar-inverse">Précédent</button>
+            <button id="next" class="navbar-inverse" >Suivant</button>
+
+      </div>
+
+  </div>
+
+  
+  <!-- Section 2.2 Map -->
+	<div class="section-map divMap " >
+			
+			<iframe src="map.html" class="col-md-8 col-sm-12 col-lg-12" id="map"></iframe>
+      <div id="underIframe"></div>
+			
+	</div>
+
+
+  <!-- Section 2.3 Compte -->
+  <div>
     
 
-        <div class="vignette vignette1" id="slide"><h2>Etape 1</h2></div>
-        <div class="vignette vignette2" ><h2>Etape 2</h2></div>
-        <div class="vignette vignette3" ><h2>Etape 3</h2></div>
-        <div class="vignette vignette4" ><h2>Etape 4</h2></div>
-        <div class="vignette vignette5" ><h2>Etape 5</h2></div>
-
-    
-		
-	</section> 
-
-  <div class="button"  >
-
-          <button id="preview" class="navbar-inverse">Précédent</button>
-          <button id="next" class="navbar-inverse" >Suivant</button>
-
-    </div>
-
-	<section class="sectionMap">
-			
-			<iframe src="map.html" id="map"></iframe>
-			
-		
-    		<aside class="station">
-
-    			<h2>Détails de la station</h2>
-          <div id="station" class="stationCorps"></div>
-          <div>signature</div>
-          <canvas id="signature"></canvas>
-
-
-    		</aside>
-
-
-	</section>
 
 
 
-      <script type="text/javascript" src="js/ObjectSlider.js"></script>
+
+
+  </div>
+
+  <!-- Section 2.4 Panier -->
+  <div>
+  
+
+
+
+
+  </div>
+</div>
+
+</section>
+      <script type="text/javascript" src="js/ObjectSlider.js"> </script>
       <script type="text/javascript" src="js/ObjectSignature.js"></script>
+      <script type="text/javascript" src="js/ObjetClick.js"></script>
+      <script type="text/javascript" src="js/ObjetAjax.js"></script>
+      <script type="text/javascript" src="js/indexJS.js"></script>
+  
+</script>
     
      
 </body>

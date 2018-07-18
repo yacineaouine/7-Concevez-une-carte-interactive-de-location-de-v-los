@@ -13,7 +13,6 @@ class Slider
 	// variable contenant le nombre de clics sur next
 	window['r'] = 0;
 	// variable contenant le nombre de clics sur preview
-	window['l'] = 4;
 
 	//bouton gauche
 	var boutonIdLeft = document.getElementById(idButtonLeft);
@@ -62,25 +61,25 @@ class Slider
 		// fonction appelée à chaque clic sur le bouton
 		this.compteurL();
 		
-		if(x[l+1].id === y && l>=0)
+		if(x[r+1].id === y && r>=0)
 		{
-			x[l+1].id = "";
-			x[l].id = y;
+			x[r+1].id = "";
+			x[r].id = y;
 		}
 	}
 
 	compteurL()
 	{
 	// on diminiue la valeur de la variable
-		if(l>0)
+		if(r>0)
 		{
-			l--;
-			return l;
+			r--;
+			return r;
 		}
 		else
 		{
-			l=3;
-			return l;
+			r=3;
+			return r;
 		}
 	}
 
@@ -121,4 +120,4 @@ class Slider
 
 }
 
-var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
+

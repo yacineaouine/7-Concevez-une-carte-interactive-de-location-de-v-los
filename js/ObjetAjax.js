@@ -67,38 +67,7 @@ class ajaxCall
 
 }
 
-var ajaxGet = new ajaxCall("https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=4c0dd7bc629dffa5ae869d96fce6b4eec7760d7c", "GET", function (reponse) {
 
-    // Transforme la réponse en tableau d'objets JavaScript
-
-    var stations = JSON.parse(reponse);
-
-    //création des marqueurs avec array JCDecaux
-    for (var i = 0; i < stations.length; i++) {
-          var lat = stations[i].position.lat;
-          var lng = stations[i].position.lng;
-          var latLng = new google.maps.LatLng(lat,lng);
-          var iconBase = 'image/iconeVelo.png';
-          var marker = new google.maps.Marker({
-            position: latLng,
-            icon: iconBase,
-            map: map
-          });
-      }
-
-
-});
-
-
-
-  // Création d'un objet JSon
-
-var film = {
-    titre: "Scarface",
-    annee: "2016",
-    realisateur: "Byron Howard et Rich Moore"
-};
-var ajaxPOST = new ajaxCall("http://localhost/javascript-web-srv/post_json.php", "POST", film, true, true);
 
 
 
