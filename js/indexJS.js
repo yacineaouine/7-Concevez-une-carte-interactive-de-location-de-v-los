@@ -18,21 +18,26 @@ var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
  window['stations'] = stations;
 
  // Recupération des données avec la mouse
- var ifra = document.getElementById('map');
- ifra.addEventListener("click", (e) => function(e){console.log(e);});
+ //var ifra = document.getElementById('map');
+ //ifra.addEventListener("click", (e) => function(e){console.log(e);});
 
 
  // Affichage des données JCDecaux
- for(var i=0; i<stations.length; i++)
+ /*for(let i=0; i<stations.length; i++)
  {
  if (stations[i].status === "OPEN") 
- {document.getElementById("underIframe").style.backgroundColor = "green";}
- else {document.getElementById("underIframe").style.backgroundColor = "red";}
-  }
-  document.getElementById("underIframe").innerHTML += stations[10].status+'<br>'+stations[10].name+'<br>'+stations[10].address;
+ {document.getElementById("station").style.backgroundColor = "green";}
+ else {document.getElementById("station").style.backgroundColor = "red";}
+  }*/
 
- //ObjetMap 
+	
+  for(let i=0; i<stations.length; i++)
+  {let icone = document.getElementsByClassName('gmnoprint');}
+  	document.getElementById("station").innerHTML += stations[0].status+'<br>'+stations[0].name+'<br>'+stations[0].address;
+
+
  //récupération des données JSON API JCDecaux (stations) et intégration à la map
+ //ObjetMap 
  var mapJS = new Map('map',stations ,'lyon', 45.75, 4.85, 15, 'image/iconeVelo.png');
  
 });

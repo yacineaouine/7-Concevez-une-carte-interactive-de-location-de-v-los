@@ -31,7 +31,7 @@ class Map
 	     	  for (let i = 0; i < data.length; i++) {
         var markerOptions = {
             position: new google.maps.LatLng(data[i].position.lat, data[i].position.lng),
-            title: data[i].status,
+            //title: data[i].status,
             name: data[i].name,
             icon: iconBase
         };
@@ -55,79 +55,40 @@ class Map
 	                            
 	                 }
 
-	             //creation du la vignette info            
+
+	              let contentStringGreen = "<div style='background-color: green' >"+data[i].status+"</div>";
+	              let contentStringRed = "<div style='background-color: red' >"+data[i].status+"</div>";
+	           	let contentString;
+
+	              if(data[i].status === 'OPEN')
+	              	{contentString = contentStringGreen}
+
+	              else
+	              	{contentString = contentStringRed};
+	              console.log(contentString);
+	             //creation de l'infobulle        
 	            let infoWindowOptions = {
-	            content:
-	            data[i].status+'  '
-	        	+data[i].name};
+	            content: contentString
+	        	};
 	           
 	            // creation de l'info sur la map
 	            let infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-	       		console.log(infoWindow);
+	       		
 	            //ajout ecouteur sur marker
 	            google.maps.event.addListener(marker, 'click',  function() {
 	                infoWindow.open(map, marker);
 	            });
 	     	 
 	          }
+
+
 	        
 	          var markerCluster = new MarkerClusterer(map, markers,
             {maxZoom: 23, imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
 	          //animation au click
-	         
-
-
-
-	    
-          	
-
-
 
 	}
 
 
 }
 
-
-
-
-		
-/*
-var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 45.75, lng: 4.85},
-          zoom: 15
-        });
-         infoWindow = new google.maps.InfoWindow;
-
-
-        // HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-
-      }*/

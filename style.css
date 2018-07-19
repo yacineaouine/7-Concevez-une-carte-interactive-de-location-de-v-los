@@ -252,6 +252,13 @@ justify-content: center;
 }
 
 
+#reserver{
+	display: none;
+}
+
+#btnReserver:focus + #reserver{
+	display: flex;
+}
 
 
 
