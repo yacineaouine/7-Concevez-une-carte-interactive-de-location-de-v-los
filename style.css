@@ -243,30 +243,16 @@ justify-content: center;
 }
 
 #map{
-	height: 100%;
+	height: 500px;
+	width: 100%;
 }
 
 .stationDetails{
 	height: 60%;
 }
 
-#underIframe{
-	height: 90px;
-	width: 100%;
-	display: none;
-}
 
-#map:hover + #underIframe {
-	display: flex;
-} 
 
-#reserver{
-	display: none;
-}
-
-#btnReserver:focus + #reserver  {
-	display: flex;
-}
 
 
 

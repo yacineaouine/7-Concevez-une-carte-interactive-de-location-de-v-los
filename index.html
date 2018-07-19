@@ -2,11 +2,13 @@
 <html>
 <head>
 	<title>VéloLibreService</title>
+  <meta name="viewport" content="initial-scale=1.0" />
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -135,12 +137,8 @@
 
   
   <!-- Section 2.2 Map -->
-	<div class="section-map divMap " >
-			
-			<iframe src="map.html" class="col-md-8 col-sm-12 col-lg-12" id="map"></iframe>
-      <div id="underIframe"></div>
-			
-	</div>
+	<div class="section-map divMap" id="map">	</div>
+  <div id="underIframe"></div>
 
 
   <!-- Section 2.3 Compte -->
@@ -165,11 +163,20 @@
 </div>
 
 </section>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&libraries=drawing"></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+
+<script type="text/javascript" src="js/markerclusterer.js"></script>
       <script type="text/javascript" src="js/ObjectSlider.js"> </script>
       <script type="text/javascript" src="js/ObjectSignature.js"></script>
       <script type="text/javascript" src="js/ObjetClick.js"></script>
       <script type="text/javascript" src="js/ObjetAjax.js"></script>
-      <script type="text/javascript" src="js/indexJS.js"></script>
+      <script type="text/javascript" src="js/ObjetMap.js"></script>
+      <script type="text/javascript" src="js/indexJS.js"></script> 
+      
+   
+
   
 </script>
     
