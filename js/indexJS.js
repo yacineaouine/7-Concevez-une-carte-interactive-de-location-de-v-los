@@ -17,27 +17,8 @@ var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
  let stations = JSON.parse(reponse);
  window['stations'] = stations;
 
- // Recupération des données avec la mouse
- //var ifra = document.getElementById('map');
- //ifra.addEventListener("click", (e) => function(e){console.log(e);});
-
-
- // Affichage des données JCDecaux
- /*for(let i=0; i<stations.length; i++)
- {
- if (stations[i].status === "OPEN") 
- {document.getElementById("station").style.backgroundColor = "green";}
- else {document.getElementById("station").style.backgroundColor = "red";}
-  }*/
-
-	
-  for(let i=0; i<stations.length; i++)
-  {let icone = document.getElementsByClassName('gmnoprint');}
-  	document.getElementById("station").innerHTML += stations[0].status+'<br>'+stations[0].name+'<br>'+stations[0].address;
-
-
- //récupération des données JSON API JCDecaux (stations) et intégration à la map
- //ObjetMap 
+//récupération des données JSON API JCDecaux (stations) et intégration à la map
+//ObjetMap 
  var mapJS = new Map('map',stations ,'lyon', 45.75, 4.85, 15, 'image/iconeVelo.png');
  
 });
