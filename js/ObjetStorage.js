@@ -30,15 +30,16 @@ class Storage
 	myItem()
 	{	
 		sessionStorage.setItem(this.choice, this.contents);
-		var panier = document.getElementById("panier");
-		panier.textContent += this.contents;
+		var contentPanier = document.getElementById("contentPanier");
+		contentPanier.textContent += this.contents;
 	}
 
 	clearItem()
 	{
-		sessionStorage.removeItem(this.choice);
-		var panier = document.getElementById("panier");
-		//ajouter remove
+		//sessionStorage.removeItem(this.choice);
+		var contentPanier = document.getElementById("contentPanier");
+		contentPanier.textContent -= this.contents;
+		//ajouter remOVE
 		alert('item supprimé');
 	}
 

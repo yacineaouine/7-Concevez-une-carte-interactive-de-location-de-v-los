@@ -23,6 +23,8 @@
  
           <div class="container" id="container">
 
+              <!-- Section dasboard gauche-->
+
               <div class="col-md-8 col-sm-12 col-lg-6" id="navigationMain">
 
                 <div id="logo"><h1><i class="fas fa-bicycle"></i> VLS</h1></div>
@@ -45,12 +47,19 @@
 
               </nav>
                <!-- Panier -->
-                      <div id="panier"><i class="fas fa-shopping-cart"></i> Panier</div>
+                      <div id="panier">
+                            <div id="titlePanier"><i class="fas fa-shopping-cart"></i> Panier</div>
+                            <div id="contentPanier"></div>
+                      </div>
                       <button type="button" id="btnClear"><i class="fas fa-trash-alt"></i> Vider</button>
 
               </div>
 
+              <!--section dasboard droite-->
+
                 <div class="col-md-8 col-sm-12 col-lg-6" id="navigationSecond">
+
+                  <!--titre-->
 
                   <div id="navS-title">
 
@@ -61,7 +70,17 @@
                     <div id="compte-title" class="divCompte divNone">Mon Compte</div>
 
                   </div>
-                
+
+                  <!--widget adresse entreprise pour formulaire de contact-->
+                   <div class="divContact divNone widget" id="widgetContact">
+                    SARL Velo Libre Service<br>
+                    Rue des velos libres<br>
+                    Lyon 69000<br>
+                    Tel: +33 491 000 000
+                   </div>
+
+                  
+                  <!--navigation tuto-->
                   <nav class="divTuto divNone col-md-8 col-sm-12 col-lg-12 "  id="navS-body">
 
                     <button type="button" class="btnEtape" >Etape 1</button>
@@ -72,14 +91,25 @@
 
                   </nav>
 
+                  <!--info map-->
                   <aside class="station divMap divNone" id="stationAside">
 
                       <h2 id="titre-stationDetails">Détails de la station</h2>
 
                       <div id="station" class="stationCorps">
+
                           <div class="stationDetails" id="stationDetails">
-                            
+
+                          <div class="styleDetails" id="statusDetails"><!--OPEN/CLOSED--> </div>
+                          <strong>Nom: </strong><div class="styleDetails" id="nomDetails"></div> 
+                          <strong>Adresse: </strong><div class="styleDetails" id="addressDetails"></div>
+                          <strong>Attaches opérationnels: </strong><div class="styleDetails" id="opeDetails"></div>
+                          <strong>Attaches disponibles: </strong><div class="styleDetails" id="dispoDetails"></div>
+                          <strong>Vélos disponibles: </strong><div class="styleDetails" id="veloDetails"></div>
+                          <strong>Terminal de paiment: </strong><div class="styleDetails" id="paiementDetails"></div>
+
                           </div>  
+
                       </div>
 
                       <div id="sectionSignature">
@@ -100,6 +130,15 @@
                       </form> 
                       
 
+                  </aside>
+
+                  <!--info compte-->
+                  <aside class="divCompte divNone">
+                    <img src="image/avatar.png">
+                    <div>Nom: </div>
+                    <div>Prenom: </div>
+                    <div>Mail: </div>
+                    <button type="button" id="btnContact2"><i class="fas fa-envelope"></i> Nous contacter</button>
                   </aside>
                  
 
@@ -145,10 +184,24 @@
 
   <!-- Section 2.2 Contact -->
   <div class="divContact divNone widget">
-    
+     <div class="widget" id="widgetContactCorps">
 
+            <form action="/action_page.php" method="post" id="formContact">
 
+              Nom: <br>
+              <input type="text" name="firstname">
+              Prénom: <br>
+              <input type="text" name="lastname">
+              Mail: <br>
+              <input type="mail" name="mail">
+              Votre message: <br>
+              <textarea name="message" rows="10" cols="30">
+            
+              </textarea><br><br>
+              <input type="submit" name="">
+            </form>
 
+      </div>
 
   </div>
 
@@ -205,8 +258,8 @@
 </section>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU9mnnfr0AWGnQCsoBN4LaQdDhI2PASrQ&libraries=visualization&libraries=drawing" id="script"></script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<!--<script type="text/javascript" src="js/markerclusterer.js"></script>-->
+<!--<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>-->
+<script type="text/javascript" src="js/markerclusterer.js"></script>
       <script type="text/javascript" src="js/ObjetSlider.js"> </script>
       <script type="text/javascript" src="js/ObjetSignature.js"></script>
       <script type="text/javascript" src="js/ObjetDisplay.js"></script>

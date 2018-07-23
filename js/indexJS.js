@@ -1,14 +1,13 @@
   
-//ObjetClick
+//ObjetDisplay
 var	objHome = new Display('btnHome', 'divHome', 'divNone');//affichage section home
-var objContact = new Display('btnContact', 'divContact', 'divNone');//affichage section contact
+var objContact = new Display('btnContact', 'divContact', 'divNone');//affichage section contact depuis contact
+var objContact2 = new Display('btnContact2', 'divContact', 'divNone');//affichage section contact depuis compte
+
 var objMap = new Display('btnMap', 'divMap', 'divNone'); //affichage section map
 var objTuto = new Display('btnTuto', 'divTuto', 'divNone');//affichage section tuto
 var objCompte = new Display('btnCompte', 'divCompte', 'divNone');//affichage section compte
 var objReserver = new Display('btnReserver', 'reserver')
-
-
-
 
 
 //ObjetSignature
@@ -26,9 +25,8 @@ var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
  //récupération des données JSON API JCDecaux (stations) par la methode AJAX et intégration à la map
 //ObjetMap 
 
-
-let mapJS = new Map('map','lyon', 45.75, 4.85, 10, 'image/iconeVelo.png', true, true, stations,"stationDetails");
+let mapJS = new Map('map','lyon', 45.75, 4.85, 17, 'image/iconeVelo.png', true, true, stations);
 
 });
 
-//var objStorage = new Storage(stations, data[i].name);
+
