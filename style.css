@@ -1,7 +1,7 @@
 
 body{
 	display: flex;
-	height: 786px;
+
 }
 
 header{
@@ -58,6 +58,13 @@ aside {
 	flex-direction: column;
 }
 
+#logo{
+	text-align: center;
+	height: 50px;
+	color: rgba(0,192,158,1);
+
+}
+
 #dashboard{
 padding: 0;
 }
@@ -65,17 +72,14 @@ padding: 0;
 .diaporama, .section-tuto{
 display: flex;
 justify-content: center;
-margin-bottom: 100px;
-margin-top: 100px;
-perspective: 800px;
+/*margin-bottom: 100px;*/
+margin-top: 10px;
 align-self: center;
 }
 
 .vignette{
 	border: outset 1px black;
 	background-color: rgba(0,0,0,0.5);
-	height: 320px;
-	width: 400px;
 }
 
 
@@ -91,7 +95,6 @@ align-self: center;
 
 	background-color: rgba(0,0,0,0.5);
 	border: 1px solid;
-	height: 375px;
 	display: flex;
 	align-items: center;
 }
@@ -105,14 +108,11 @@ align-self: center;
 	color: orange;
 }
 
-.stationCorps{
-	height: 378px;
-}
+
 
 #signature{
 	background-color: white;
 	cursor: url(image/cur1046.cur), auto;
-	width: 100%;
 }
 
 
@@ -131,9 +131,15 @@ align-self: center;
 	flex-direction: column;
 	align-items: center;
 	background-color: white;
-	border-radius: 2px;
-	border: groove 1px;
 	box-shadow: 5px 5px 5px 5px grey;
+	border: solid 2px black;
+	border-radius: 7px;
+	height: 716px;
+}
+
+.divTuto{
+	display: none;
+
 }
 
 
@@ -147,7 +153,10 @@ align-self: center;
 #section-title{
 	background-color: rgba(46,52,57,0.9);
 	height: 50px;
-	border: 1px outset rgba(46,52,57,1);
+    display: flex;
+    justify-content: center;
+    border: outset rgba(46,52,57,1) 1px;
+	color: rgba(0,192,158,1);
 }
 
 #section-main{
@@ -160,9 +169,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 color: black;
-border: 1px outset rgba(46,52,57,1);
 height: 50px;
-font-size: 1.5em;
+border-radius: 7px;
+box-shadow: 5px 5px 5px 5px grey;
+border: outset 1px rgb(124, 143, 159);
+background-color: rgba(255, 255, 255, 0.5);
 }
 
 #navS-title{
@@ -172,23 +183,31 @@ font-size: 1.5em;
 	color: white;
 	display: flex;
 	justify-content: center;
+	box-shadow: 2px 2px 2px gray,
+-1px -1px 2px white;
 }
 
-#section-title{
-border: outset rgba(46,52,57,1) 1px;
-color: rgba(0,192,158,1);
+#home-title{
+	align-items: center;
+justify-content: center;
+}
+
+#contact-title{
+	align-items: center;
+justify-content: center;
 }
 
 #tuto-title{
 	align-items: center;
 justify-content: center;
 }
+
  #map-title{
 	align-items: center;
 justify-content: center;
 }
- #compte-title{
 
+ #compte-title{
 	align-items: center;
 justify-content: center;
 }
@@ -213,6 +232,7 @@ border: inset rgba(46,52,57,1) 1px;
 background-color: transparent;
 height: 267px;
 justify-content: center;
+flex-direction: column;
 }
 
 
@@ -224,6 +244,18 @@ justify-content: center;
 .btnEtape{
 	background-color: transparent;
 	border: groove 1px rgba(243,244,247,1);
+	border: solid 2px black;
+	border-radius: 7px;	
+	box-shadow: 5px 5px 5px 5px grey;
+}
+.btnEtape:hover{
+	border: outset 1px rgb(124, 143, 159);
+	background-color: rgba(255, 255, 255, 0.5);
+}
+.btnEtape:focus{
+	background-color: #ff7907;
+}
+
 }
 
 .btnEtape:hover{
@@ -234,36 +266,111 @@ justify-content: center;
 	color: white;
 }
 
-.hide{
-	display: none;
-}
-
-.show, #slide{
-	display: block;
-}
 
 #map{
-	height: 500px;
+	height: 696px;;
 	width: 100%;
+	border: solid 2px black;
+	border-radius: 7px;	
+	box-shadow: 5px 5px 5px 5px grey;
+}
+
+.divMap{
+	display: none;
 }
 
 .stationDetails{
-	height: 60%;
+	color: white;
+	border-radius: 6px ;
+	opacity: 1;
+	box-shadow: 2px 2px 2px gray, -1px -1px 2px white;
+	margin: 3px;
+}
+
+#btnReserver{
+	border-radius: 7px;
+margin-bottom: 2px;
 }
 
 
-#reserver{
+
+.reserver{
 	display: none;
+	flex-direction: column;
 }
 
-#btnReserver:focus + #reserver{
+#sectionSignature{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+
+
+#titre-stationDetails{
+	background-color: black;
+	border: solid 2px black;
+	color: white;
+
+}
+
+#panier{
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	margin: 5px;
+	padding-top: 5px;
+	border: solid black 2px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px gray,-1px -1px 2px white;
+	background-color: #ff7907;
+	height: 100px;
+
+}
+
+.vignetteDisplay{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	border: solid black 10px;
+
+}
+
+
+#checkForm{
+border-radius: 6px;
+opacity: 1;
+box-shadow: 2px 2px 2px gray, -1px -1px 2px white;
+margin: 3px;
+height: 75px;
+color: black;
+padding: 5px;
+background-color: rgba(14, 248, 248, 0.23);
+}
+
+.divHome{
 	display: flex;
 }
 
-#titre-stationDetails{
-	background-color: white;
+.divCompte{
+	display: none;
 }
 
+.divContact{
+	display: none;
+}
 
+.widget{
+	    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px grey;
+    border: solid 2px black;
+    border-radius: 7px;
+    height: 716px;
+}
 
-
+.etapeGif{
+	width: 100%;
+	height: 100%;
+}

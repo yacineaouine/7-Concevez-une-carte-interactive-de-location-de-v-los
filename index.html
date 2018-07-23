@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>VéloLibreService</title>
-  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -10,14 +10,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   
     
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
 </head>
 
 <body>
-
-
-  
 
 
 <!-- SECTION 1 DASHBOARD -->
@@ -28,16 +25,15 @@
 
               <div class="col-md-8 col-sm-12 col-lg-6" id="navigationMain">
 
-                
+                <div id="logo"><h1><i class="fas fa-bicycle"></i> VLS</h1></div>
+
               <div class="dash"><i class="fas fa-desktop"></i> &nbsp; Tableau de bord</div>
               
-               
 
              	<nav class="navP">
 
-                  <button type="button" ><i class="fas fa-bicycle"></i> Velo Libre Service</button>
-                  <button type="button" ><i class="fas fa-home"></i> Home</button>
-                  <button type="button" ><i class="fas fa-envelope"></i> Contact</button>
+                  <button type="button" id="btnHome"><i class="fas fa-home"></i> Home</button>
+                  <button type="button" id="btnContact"><i class="fas fa-envelope"></i> Contact</button>
  
               </nav>
 
@@ -48,6 +44,9 @@
                   <button type="button" id="btnCompte"><i class="fas fa-address-card"></i> Mon Compte</button>
 
               </nav>
+               <!-- Panier -->
+                      <div id="panier"><i class="fas fa-shopping-cart"></i> Panier</div>
+                      <button type="button" id="btnClear"><i class="fas fa-trash-alt"></i> Vider</button>
 
               </div>
 
@@ -55,23 +54,25 @@
 
                   <div id="navS-title">
 
-                    <div id="tuto-title" class="hide">Tutoriel</div>
-                    <div id="map-title" class="btnMap hide">Réserver un vélo</div>
-                    <div id="compte-title" class="btnCompte hide">Mon Compte</div>
+                    <div id="home-title" class="divHome divNone">Home</div>
+                    <div id="contact-title" class="divContact divNone">Contact</div>
+                    <div id="tuto-title" class="divTuto divNone">Tutoriel</div>
+                    <div id="map-title" class="divMap divNone">Réserver un vélo</div>
+                    <div id="compte-title" class="divCompte divNone">Mon Compte</div>
 
                   </div>
                 
-                  <nav class="col-md-8 col-sm-12 col-lg-12 btnTuto hide"  id="navS-body">
+                  <nav class="divTuto divNone col-md-8 col-sm-12 col-lg-12 "  id="navS-body">
 
-                    <button type="button" class="btnEtape" onclick=>Etape 1</button>
-                    <button type="button" class="btnEtape" onclick=>Etape 2</button>
-                    <button type="button" class="btnEtape" onclick=>Etape 3</button>
-                    <button type="button" class="btnEtape" onclick=>Etape 4</button>
-                    <button type="button" class="btnEtape" onclick=>Etape 5</button>
+                    <button type="button" class="btnEtape" >Etape 1</button>
+                    <button type="button" class="btnEtape" >Etape 2</button>
+                    <button type="button" class="btnEtape" >Etape 3</button>
+                    <button type="button" class="btnEtape" >Etape 4</button>
+                    <button type="button" class="btnEtape" >Etape 5</button>
 
                   </nav>
 
-                  <aside class="station" id="stationAside">
+                  <aside class="station divMap divNone" id="stationAside">
 
                       <h2 id="titre-stationDetails">Détails de la station</h2>
 
@@ -81,15 +82,26 @@
                           </div>  
                       </div>
 
-                      <div>
+                      <div id="sectionSignature">
                       <button type="button" id="btnReserver"> Réserver</button>
-                      <div id="reserver">
+
+                      <div class="reserver">
                       <canvas id="signature"></canvas>
-                      <button type="button"> Signature</button>
+                      <button type="button" id="btnSignature"> Signature</button>
                       </div>
+                      
                       </div>
 
+                      <form action="/action_page.php" id="checkForm">
+                            <input type="checkbox" name="status" value="OPEN"> Ouvert
+                            <br>
+                            <input type="checkbox" name="paiement" value="true"> Terminal de paiement disponible
+                            <br><br>
+                      </form> 
+                      
+
                   </aside>
+                 
 
                 </div>
 
@@ -107,28 +119,58 @@
 
   <!-- Section title -->
   <div id="section-title"> 
-    <h2 class="divTuto hide" id="tuto-titre">Tutoriel</h2>
-    <h2 class="divMap hide" id="map-titre">Map</h2>
-    <h2 class="divCompte hide" id="compte-titre">Mon Compte</h2>
+    <h2 class="divHome divNone">Home</h2>
+    <h2 class="divContact divNone">Contact</h2>
+    <h2 class="divTuto divNone" id="tuto-titre">Tutoriel</h2>
+    <h2 class="divMap divNone" id="map-titre">Réserver un vélo</h2>
+    <h2 class="divCompte divNone" id="compte-titre">Mon Compte</h2>
   </div>
 
 
 <!-- Section Corps -->
 <div id="section-corps">
-  <!-- Section 2.1 Tutoriel -->
-  <div class="col-md-8 col-sm-12 col-lg-12 divTuto hide" id="tuto">
+
+
+
+
+  <!-- Section 2.1 Home -->
+  <div class="divHome divNone widget">
+    
+
+
+
+
+  </div>
+
+
+  <!-- Section 2.2 Contact -->
+  <div class="divContact divNone widget">
+    
+
+
+
+
+  </div>
+
+
+
+
+  <!-- Section 2.3 Tutoriel -->
+  <div class="col-md-8 col-sm-12 col-lg-12 divTuto divNone" id="tuto">
 
       <div class="diaporama" id="diapo">
 
             <div class="vignette vignette1" id="slide"><h2>Etape 1</h2></div>
-            <div class="vignette vignette2 hide" ><h2>Etape 2</h2></div>
-            <div class="vignette vignette3 hide" ><h2>Etape 3</h2></div>
-            <div class="vignette vignette4 hide" ><h2>Etape 4</h2></div>
-            <div class="vignette vignette5 hide" ><h2>Etape 5</h2></div>
+            <div class="vignette vignette2 " ><h2>Etape 2</h2></div>
+            <div class="vignette vignette3 " ><h2>Etape 3</h2></div>
+            <div class="vignette vignette4 " ><h2>Etape 4</h2></div>
+            <div class="vignette vignette5 " ><h2>Etape 5</h2></div>
 
       </div> 
-
-      
+      <div class="vignetteDisplay">
+        <img src="image/etape1.gif" class="etapeGif">
+      </div>
+ 
       <div class="button" >
 
             <button id="preview" class="navbar-inverse">Précédent</button>
@@ -139,14 +181,17 @@
   </div>
 
   
-  <!-- Section 2.2 Map -->
-	<div class="section-map divMap" id="map">	</div>
+
+  <!-- Section 2.4 Map -->
+  <div class="divMap divNone">
+	<div class="section-map " id="map">	</div>
+
+</div>
 
 
-  <!-- Section 2.3 Compte -->
-  <div>
+  <!-- Section 2.5 Compte -->
+  <div class="divCompte divNone widget">
     
-
 
 
 
@@ -154,22 +199,22 @@
 
   </div>
 
-  <!-- Section 2.4 Panier -->
-  <div style="background-color: green"> </div>
+  
 </div>
 
 </section>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&libraries=drawing"></script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-    </script>
 
-<script type="text/javascript" src="js/markerclusterer.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU9mnnfr0AWGnQCsoBN4LaQdDhI2PASrQ&libraries=visualization&libraries=drawing" id="script"></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<!--<script type="text/javascript" src="js/markerclusterer.js"></script>-->
       <script type="text/javascript" src="js/ObjetSlider.js"> </script>
       <script type="text/javascript" src="js/ObjetSignature.js"></script>
-      <script type="text/javascript" src="js/ObjetClick.js"></script>
+      <script type="text/javascript" src="js/ObjetDisplay.js"></script>
       <script type="text/javascript" src="js/ObjetAjax.js"></script>
+      <script type="text/javascript" src="js/ObjetStorage.js"></script> 
       <script type="text/javascript" src="js/ObjetMap.js"></script>
       <script type="text/javascript" src="js/indexJS.js"></script> 
+     
       
    
 
