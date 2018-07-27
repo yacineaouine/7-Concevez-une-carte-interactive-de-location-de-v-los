@@ -11,29 +11,64 @@ class Signature
 		window['canvas'] = document.getElementById(idCanvas);
 		window['ctx'] = canvas.getContext("2d");
 		ctx.fillStyle = color;
-		/*canvas.addEventListener("touchstart", handleStart, false);
-  		canvas.addEventListener("touchend", handleEnd, false);
-  		canvas.addEventListener("touchcancel", handleCancel, false);
-  		canvas.addEventListener("touchleave", handleLeave, false);
-  		canvas.addEventListener("touchmove", handleMove, false);*/
-		canvas.addEventListener("mousemove", this.getCoordinates);
-		canvas.addEventListener("mousemove", (e) => {this.drawn();});
+		
+  		
+  		//device
+  		canvas.addEventListener("touchstart", this);
+  		canvas.addEventListener("touchmove", this.getCoordinatesDevice);
+  		canvas.addEventListener("touchmove", (evt) => {this.drawnDevice();});
 
-		
-		
+  		//desktop
+		canvas.addEventListener("mousemove", this.getCoordinates);
+		document.addEventListener("keypress", (e) => {this.keypressButton(e);});
+
+		//clearCanvas
+		var btnClearSignature = document.getElementById('btnClearSignature');
+		btnClearSignature.addEventListener("click", (e) => {this.clearCanvas();});
+	
 	}
 
-	getCoordinates(e)
-	{
-	window['x'] =  e.clientX - canvas.offsetLeft + window.scrollX -226;
+
+/*smartphone*/
+	getCoordinatesDevice(evt){
+		window['xd'] = evt.touches[0].clientX - canvas.offsetLeft + window.scrollX -43;	
+		window['yd'] = evt.touches[0].clientY - canvas.offsetLeft + window.scrollY -461;
+	}
+
+	drawnDevice(){
+		ctx.fillStyle = this.color;
+		ctx.fillRect(xd, yd, this.i,this.j);
+	}
+
+/*desktop*/	
+
+	getCoordinates(e){
+	window['x'] =  e.clientX - canvas.offsetLeft + window.scrollX - 190;
 	window['y'] = e.clientY - canvas.offsetTop + window.scrollY;
 	}
   
-  	drawn()
-  	{
+  	drawn(){
 	ctx.fillStyle = this.color;
 	ctx.fillRect(x,y,this.i,this.j);
   	}
+
+  	 keypressButton(e)
+	{
+		
+			if(e.key === 'w')
+			{
+				
+				canvas.addEventListener("mousemove", this.drawn());
+			}
+			
+				
+	}
+
+	clearCanvas(){
+		console.log("clearCanvas");
+		ctx.clearRect(0,0,canvas.width, canvas.height);
+	}
+
 
 	
 }

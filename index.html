@@ -19,6 +19,9 @@
 
 <!-- SECTION 1 DASHBOARD -->
 
+
+<!--<div style="background-color: red; color: white; font-size: 2em;height: 300px;">SITE EN COURS DE MAINTENANCE/<br>THIS SITE IS UNDER MAINTENANCE</div>-->
+
   <section class="col-md-8 col-sm-12 col-lg-4" id="dashboard">
  
           <div class="container" id="container">
@@ -47,11 +50,12 @@
 
               </nav>
                <!-- Panier -->
+                      <div id="chrono"></div>
                       <div id="panier">
                             <div id="titlePanier"><i class="fas fa-shopping-cart"></i> Panier</div>
                             <div id="contentPanier"></div>
                       </div>
-                      <button type="button" id="btnClear"><i class="fas fa-trash-alt"></i> Vider</button>
+                      <button type="button" class="btnClear" id="btnClear"><i class="fas fa-trash-alt"></i></button>
 
               </div>
 
@@ -83,13 +87,39 @@
                   <!--navigation tuto-->
                   <nav class="divTuto divNone col-md-8 col-sm-12 col-lg-12 "  id="navS-body">
 
-                    <button type="button" class="btnEtape" >Etape 1</button>
-                    <button type="button" class="btnEtape" >Etape 2</button>
-                    <button type="button" class="btnEtape" >Etape 3</button>
-                    <button type="button" class="btnEtape" >Etape 4</button>
-                    <button type="button" class="btnEtape" >Etape 5</button>
+                    <button type="button" class="btnEtape" id="btnEtape1" >Etape 1</button>
+                    <button type="button" class="btnEtape" id="btnEtape2">Etape 2</button>
+                    <button type="button" class="btnEtape" id="btnEtape3">Etape 3</button>
+                    <button type="button" class="btnEtape" id="btnEtape4">Etape 4</button>
+                    <button type="button" class="btnEtape" id="btnEtape5">Etape 5</button>
 
                   </nav>
+                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText1">
+                    <h3>Etape 1</h3>
+                    Cliquer sur le bouton "Reserver un vélo"
+                    La carte s'affiche.
+                  </div>
+                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText2">
+                    <h3>Etape 2</h3>
+                    Cliquer sur le bouton "Reserver un vélo"
+                    La carte s'affiche.
+                  </div>
+                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText3">
+                    <h3>Etape 3</h3>
+                    Cliquer sur le bouton "Reserver un vélo"
+                    La carte s'affiche.
+                  </div>
+                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText4">
+                    <h3>Etape 4</h3>
+                    Cliquer sur le bouton "Reserver un vélo"
+                    La carte s'affiche.
+                  </div>
+                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText5">
+                    <h3>Etape 5</h3>
+                    Cliquer sur le bouton "Reserver un vélo"
+                    La carte s'affiche.
+                  </div>
+
 
                   <!--info map-->
                   <aside class="station divMap divNone" id="stationAside">
@@ -117,18 +147,12 @@
 
                       <div class="reserver">
                       <canvas id="signature"></canvas>
-                      <button type="button" id="btnSignature"> Signature</button>
+                      <button type="button" id="btnSignature" value="submit"> Signature</button>
+                      <button type="button" id="btnClearSignature" class="btnClear" value="clear"><i class="fas fa-trash-alt"></i></button>
                       </div>
+                      <div class="payment">Paiement accepté</div>
                       
                       </div>
-
-                      <form action="/action_page.php" id="checkForm">
-                            <input type="checkbox" name="status" value="OPEN"> Ouvert
-                            <br>
-                            <input type="checkbox" name="paiement" value="true"> Terminal de paiement disponible
-                            <br><br>
-                      </form> 
-                      
 
                   </aside>
 
@@ -174,6 +198,7 @@
 
   <!-- Section 2.1 Home -->
   <div class="divHome divNone widget">
+    <img src="image/velolyon.jpg" id="guide">
     
 
 
@@ -186,7 +211,7 @@
   <div class="divContact divNone widget">
      <div class="widget" id="widgetContactCorps">
 
-            <form action="/action_page.php" method="post" id="formContact">
+            <form action="mailto:venomsnake06400@gmail.com" method="post" enctype="text/plain" id="formContact">
 
               Nom: <br>
               <input type="text" name="firstname">
@@ -213,16 +238,39 @@
 
       <div class="diaporama" id="diapo">
 
-            <div class="vignette vignette1" id="slide"><h2>Etape 1</h2></div>
-            <div class="vignette vignette2 " ><h2>Etape 2</h2></div>
-            <div class="vignette vignette3 " ><h2>Etape 3</h2></div>
-            <div class="vignette vignette4 " ><h2>Etape 4</h2></div>
-            <div class="vignette vignette5 " ><h2>Etape 5</h2></div>
+            <div class="vignette vignette1" id="slide">
+              <div>Etape 1</div>
+                <div class="vignetteDisplay">
+                  <img src="image/etape1.gif" class="etapeGif">
+                </div>
+              </div>
+            <div class="vignette vignette2 " >
+              <div>Etape 2</div>
+               <div class="vignetteDisplay">
+                  <img src="image/etape2.png" class="etapeGif">
+                </div>
+            </div>
+            <div class="vignette vignette3 " >
+              <div>Etape 3</div>
+               <div class="vignetteDisplay">
+                  <img src="image/etape1.gif" class="etapeGif">
+                </div>
+            </div>
+            <div class="vignette vignette4 " >
+              <div>Etape 4</div>
+               <div class="vignetteDisplay">
+                  <img src="image/etape2.png" class="etapeGif">
+                </div>
+            </div>
+            <div class="vignette vignette5 " >
+              <div>Etape 5</div>
+               <div class="vignetteDisplay">
+                  <img src="image/etape1.gif" class="etapeGif">
+                </div>
+            </div>
 
       </div> 
-      <div class="vignetteDisplay">
-        <img src="image/etape1.gif" class="etapeGif">
-      </div>
+    
  
       <div class="button" >
 
@@ -237,6 +285,7 @@
 
   <!-- Section 2.4 Map -->
   <div class="divMap divNone">
+
 	<div class="section-map " id="map">	</div>
 
 </div>
@@ -244,13 +293,25 @@
 
   <!-- Section 2.5 Compte -->
   <div class="divCompte divNone widget">
-    
+
+      <aside class="" id="divSmartphone">
+        <img src="image/avatar.png">
+        <div>Nom: </div>
+        <div>Prenom: </div>
+        <div>Mail: </div>
+        <button type="button" id="btnContact2"><i class="fas fa-envelope"></i> Nous contacter</button>
+       </aside>
 
 
+  <div class="widget">
 
-
+    Mes reservations:
+    <div id="contentPanier"></div> 
 
   </div>
+
+  </div>
+
 
   
 </div>
@@ -266,6 +327,7 @@
       <script type="text/javascript" src="js/ObjetAjax.js"></script>
       <script type="text/javascript" src="js/ObjetStorage.js"></script> 
       <script type="text/javascript" src="js/ObjetMap.js"></script>
+       <script type="text/javascript" src="js/ObjetChrono.js"></script>
       <script type="text/javascript" src="js/indexJS.js"></script> 
      
       
@@ -274,7 +336,7 @@
   
 </script>
     
-     
+   
 </body>
 
 </html>

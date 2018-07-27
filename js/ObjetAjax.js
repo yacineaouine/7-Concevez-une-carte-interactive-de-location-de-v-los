@@ -2,11 +2,7 @@
 //création d'un objet appel AJAX;
 class ajaxCall
 {
-	constructor(url, type, callback, data,  isJson)
-	{
-    
-
-
+	constructor(url, type, callback, data,  isJson){
 			//paramètre
 			this.url=url;
 			this.type=type;
@@ -66,14 +62,6 @@ class ajaxCall
 	}
 
 }
-
-
-
-
-
-
-
-
 
 
 

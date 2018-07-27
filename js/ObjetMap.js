@@ -2,7 +2,7 @@
 class Map
 {
 
-	constructor(idMap,ville,lat,lng,zoom,icone,isMarker,geo,data)
+	constructor(idMap,ville,lat,lng,zoom,data)
 	{
 		
 		this.idMap = idMap;
@@ -10,9 +10,6 @@ class Map
 		this.lat = lat;
 		this.lng = lng;
 		this.zoom = zoom;
-		this.icone = icone;
-		this.isMarker = isMarker;
-		this.geo = geo;
 		window['data'] = data;
 		
 	
@@ -28,17 +25,9 @@ class Map
 
   		window['infoWindowGeo'] = new google.maps.InfoWindow;
 
-
-  		  		
-  		if(isMarker)
-  		{
   		this.initMapMarker();
-  		}
-
-  		if(geo)
-  		{
   		this.geolocation();
-  		}
+  		
 
   		
 	}
@@ -58,41 +47,48 @@ class Map
 
 	  	var markers = [];
 	  //création des marqueurs avec array JCDecaux
-	    var iconBase = this.icone;
+	    var iconBase = 'image/iconeVelo.png';
 	     	  for (let i = 0; i < data.length; i++) {
         var markerOptions = {
             position: new google.maps.LatLng(data[i].position.lat, data[i].position.lng),
-            //title: data[i].status,
             info: data[i],
             icon: iconBase
         };
         let marker = new google.maps.Marker(markerOptions);
         markers.push(marker);
+        
+      
 
-         marker.addListener('click', toggleBounce);
+         marker.addListener('click',  toggleBounce);
 
 function toggleBounce()
 	                {
-
+	                			
+	                	 //enleve l'animation à tous les markers
+	                	 for(var j = 0; j < markers.length; j++)
+			                   {markers[j].setAnimation(null);}   
+	                    		
 	                    if (marker.getAnimation() !== null)
 	                    {
-			                    marker.setAnimation(null);
+	                    		                 		
+			                   marker.setAnimation(null);
+
 			                    //textContent evite attaque XSS
 			                    //efface les details si existe
-			                    document.getElementById("statusDetails").textContent = ""; 
-			                    document.getElementById("nomDetails").textContent = ""; 
-			                    document.getElementById("addressDetails").textContent = ""; 
-			                    document.getElementById("opeDetails").textContent = ""; 
-			                    document.getElementById("dispoDetails").textContent = ""; 
-			                    document.getElementById("veloDetails").textContent = ""; 
-			                    document.getElementById("paiementDetails").textContent = ""; 
-
-			                   
+			                    //document.getElementById("statusDetails").textContent = ""; 
+			                    //document.getElementById("nomDetails").textContent = ""; 
+			                    //document.getElementById("addressDetails").textContent = ""; 
+			                    //document.getElementById("opeDetails").textContent = ""; 
+			                    //document.getElementById("dispoDetails").textContent = ""; 
+			                    //document.getElementById("veloDetails").textContent = ""; 
+			                    //document.getElementById("paiementDetails").textContent = ""; 
 
 
 	                    	} 
-	                    else
-	                    {
+	                   
+	                    		
+	                    		else{
+			               		//place l'animation au marker cliqué
 			                    marker.setAnimation(google.maps.Animation.BOUNCE);
 
 			                    //efface les details
@@ -113,24 +109,27 @@ function toggleBounce()
 			                    document.getElementById("veloDetails").textContent = data[i].available_bikes; 
 			                    document.getElementById("paiementDetails").textContent = data[i].banking;  
 			                    
-			                    //recuperation du choix du client
+			                    //recuperation du choix du client au toggle		                    
 			                    //ObjetStorage
-			                    var name = data[i].name;
-								var objStorage = new Storage('stations', name);
+			                    var objStorage = new Storage('stations', data[i].name, data[i].available_bikes);
+			                    }
 
+			                	
+		
 								 if(data[i].status === "OPEN")
 		                    	{document.getElementById("stationDetails").style.backgroundColor = "green";}
 
 			                    else{document.getElementById("stationDetails").style.backgroundColor = "red";}
-								
-			                   	              
-	                    }               
+								    	              
+	                        
+
+	                          
 	                            
 	                 }
 
 
-	              let contentStringGreen = "<div style='background-color: green' >"+data[i].status+"</div>";
-	              let contentStringRed = "<div style='background-color: red' >"+data[i].status+"</div>";
+	              let contentStringGreen = "<div style='background-color: green; color: white; text-align: center' >"+data[i].status+"<br>"+data[i].name+"<br>"+data[i].available_bikes+"</div>";
+	              let contentStringRed = "<div style='background-color: red; color: white; text-align: center' >"+data[i].status+"<br>"+data[i].name+"<br>"+data[i].available_bikes+"</div>";
 	           	  let contentString;
 
 	              if(data[i].status === 'OPEN')

@@ -25,7 +25,10 @@ class Slider
             this.slideRight();
         });	
 	//flèches clavier droite/gauche
-        document.addEventListener("keypress", this.arrowButton);			
+		//var divTuto = document.getElementById('tuto');
+        document.addEventListener("keydown", (e) => {this.arrowButton(e);});	
+
+			
 	}
 
 	get getSlideLeft()
@@ -40,15 +43,15 @@ class Slider
 
 	arrowButton(e){
 
-		var keyR = 39;
-		var keyL =37;
-		if (e.keyCode === 39)
+		console.log(e);
+		
+		if (e.key === "ArrowRight")
 		{
-			Slider.prototype.getSlideRight();
+			this.getSlideRight;
 		}
-		else if(e.keyCode === 37)
+		else if(e.key === "ArrowLeft")
 		{
-			getSlideLeft();
+			this.getSlideLeft;
 		}
 
 	}

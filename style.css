@@ -1,4 +1,3 @@
-
 body{
 	display: flex;
 
@@ -58,10 +57,16 @@ aside {
 	flex-direction: column;
 }
 
+
+#guide{
+	height: 50%;
+	width: 50%;
+}
+
 #logo{
 	text-align: center;
 	height: 50px;
-	color: rgba(0,192,158,1);
+	color: rgb(0, 148, 192);
 
 }
 
@@ -72,7 +77,6 @@ padding: 0;
 .diaporama, .section-tuto{
 display: flex;
 justify-content: center;
-/*margin-bottom: 100px;*/
 margin-top: 10px;
 align-self: center;
 }
@@ -80,6 +84,7 @@ align-self: center;
 .vignette{
 	border: outset 1px black;
 	background-color: rgba(0,0,0,0.5);
+	display: none;
 }
 
 
@@ -88,8 +93,6 @@ align-self: center;
 	height: 500px;
 	margin-bottom: 20px;
 }
-
-
 
 .station{
 
@@ -106,6 +109,7 @@ align-self: center;
 
 #slide{
 	color: orange;
+	display: block;
 }
 
 
@@ -125,6 +129,7 @@ align-self: center;
 #navigationSecond{
 	padding: 0;
 }
+
 
 
 #tuto{
@@ -156,7 +161,7 @@ align-self: center;
     display: flex;
     justify-content: center;
     border: outset rgba(46,52,57,1) 1px;
-	color: rgba(0,192,158,1);
+	color: rgb(0, 148, 192);
 }
 
 #section-main{
@@ -177,7 +182,7 @@ background-color: rgba(255, 255, 255, 0.5);
 }
 
 #navS-title{
-	background-color: rgba(0,192,158,1);
+	background-color: rgb(0, 148, 192);
 	height: 50px;
 	border: outset 1px rgba(46,52,57,1);
 	color: white;
@@ -290,7 +295,8 @@ flex-direction: column;
 
 #btnReserver{
 	border-radius: 7px;
-margin-bottom: 2px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 
@@ -316,7 +322,6 @@ margin-bottom: 2px;
 }
 
 #panier{
-	height: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -326,7 +331,7 @@ margin-bottom: 2px;
 	border: solid black 2px;
 	border-radius: 5px;
 	box-shadow: 2px 2px 2px gray,-1px -1px 2px white;
-	background-color: #ff7907;
+	background-color: rgb(0, 148, 192);
 	height: 100px;
 
 }
@@ -388,6 +393,12 @@ background-color: rgba(14, 248, 248, 0.23);
 
 #contentPanier{
 	text-align: center;
+	flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 7px;
+    margin: 10px;
+    display: none;
 }
 
 #widgetContact{
@@ -403,3 +414,93 @@ background-color: rgba(14, 248, 248, 0.23);
 	display: flex;
 	flex-direction: column;
 }
+
+#divSmartphone{
+	display: none;
+}
+
+#chrono{
+	background-color: red;
+	text-align: center;
+	color: white;
+}
+
+.etapeText{
+	display: none;
+}
+
+#etapeText1, #etapeText2, #etapeText3,
+#etapeText4, #etapeText5{
+	display: none;
+	flex-direction: column;
+}
+
+.payment{
+	display: none;
+	align-self: center;
+	background-color: green;
+	color: white;
+	border-radius: 10px;
+}
+
+.btnClear{
+	width: 25%;
+    border: solid white;
+}
+
+
+@media only screen and (min-width: 768px) {
+/* tablettes et ordinateurs */
+
+}
+
+@media only screen and (max-width: 767px) {
+/* smartphone */
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+/* smartphone en mode portait */
+body{
+	flex-direction: column;
+}
+
+.navS, .navP, #btnClear, #panier{
+	display: none;
+}
+
+#navigationSecond{
+	display: flex;
+}
+
+.dash:focus + .navP, .navS{
+	display: block;
+}
+
+.widget{
+	height: 100%;
+}
+
+button{
+	width: 100%;
+}
+
+
+#divSmartphone{
+	display: flex;
+}
+
+#signature:hover{
+	transform: scale(1.5);
+}
+
+}
+
+
+
+
+
+
+
+
+
+
