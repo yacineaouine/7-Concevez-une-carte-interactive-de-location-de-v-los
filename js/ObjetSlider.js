@@ -42,8 +42,6 @@ class Slider
 	}
 
 	arrowButton(e){
-
-		console.log(e);
 		
 		if (e.key === "ArrowRight")
 		{

@@ -22,6 +22,8 @@ class Signature
 		canvas.addEventListener("mousemove", this.getCoordinates);
 		document.addEventListener("keypress", (e) => {this.keypressButton(e);});
 
+		//canvas.focus({preventScroll:true});
+
 		//clearCanvas
 		var btnClearSignature = document.getElementById('btnClearSignature');
 		btnClearSignature.addEventListener("click", (e) => {this.clearCanvas();});
@@ -31,33 +33,37 @@ class Signature
 
 /*smartphone*/
 	getCoordinatesDevice(evt){
-		window['xd'] = evt.touches[0].clientX - canvas.offsetLeft + window.scrollX -43;	
-		window['yd'] = evt.touches[0].clientY - canvas.offsetLeft + window.scrollY -461;
+		window['xd'] = evt.touches[0].clientX;	
+		window['yd'] = (scrollY + evt.touches[0].clientY) - 860 ;
+		
 	}
 
 	drawnDevice(){
+		
 		ctx.fillStyle = this.color;
-		ctx.fillRect(xd, yd, this.i,this.j);
+		ctx.fillRect(xd,yd,this.i,this.j);
 	}
 
 /*desktop*/	
 
 	getCoordinates(e){
-	window['x'] =  e.clientX - canvas.offsetLeft + window.scrollX - 190;
-	window['y'] = e.clientY - canvas.offsetTop + window.scrollY;
+	window['x'] =  e.clientX - canvas.offsetLeft - 190;
+	window['y'] = e.clientY - canvas.offsetTop;
 	}
   
   	drawn(){
 	ctx.fillStyle = this.color;
 	ctx.fillRect(x,y,this.i,this.j);
+	ctx.moveTo(x,y);
+	ctx.lineTo(x,y);
+	ctx.stroke();
   	}
 
   	 keypressButton(e)
 	{
 		
 			if(e.key === 'w')
-			{
-				
+			{		
 				canvas.addEventListener("mousemove", this.drawn());
 			}
 			

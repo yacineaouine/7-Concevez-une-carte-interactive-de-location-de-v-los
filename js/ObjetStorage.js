@@ -1,77 +1,85 @@
 class Storage
 {
 
-	constructor(choice, contents, contents2)
+	constructor(keyChoice, contents, contents2)
 	{
-		this.choice = choice;
+
+	if (typeof(Storage) !== "undefined")
+	{
+		this.keyChoice = keyChoice;
 		this.contents = contents;
 		this.contents2 = contents2;
-	
 
-
-			if (typeof(Storage) !== "undefined") {
-
-		//ajout ecoute bouton signature pour enregistrer la valeur apres signature canvas
-		var btnReserver = document.getElementById("btnReserver");
-
-		btnReserver.addEventListener("click", (e) => {this.myItem();});
-		btnReserver.addEventListener("click", (e) => {this.reservation();});
-		sessionStorage.setItem(choice, contents, contents2);
-
-
-
-		var btnClear = document.getElementById("btnClear");
-		//btnClear.addEventListener("click", (e) => {this.clearItem();});
+		//div utilisé pour l'objet
+		window['contentPanierDevice'] = document.getElementById('contentPanierDevice');
+		window['contentPanierDesktop'] = document.getElementById('contentPanierDesktop');
+		window['nbVelo'] = document.getElementById('veloDetails');
+		window['paymentDesktop'] = document.getElementById('paymentDesktop');
+		window['payment'] = document.getElementsByClassName('payment[1]');
+		window['btnSignature'] = document.getElementById('btnSignature');
+		window['btnReserver'] = document.getElementById('btnReserver');
+		btnReserver.addEventListener('click', (e) => {this.myItem();});
+		 //affichage blocksignature
+		//objetDISPLAY
+		var objReserver = new Display('btnReserver', 'reserver');
 
 	}
+	
 
-			
-		else {alert("Sorry! No Web Storage support..")};
+	else {alert("Sorry! No Web Storage support..")};
 
 	}
 
 
 	myItem()
 	{
-		sessionStorage.setItem(this.choice, this.contents, this.contents2);
-		var contentPanier = document.getElementById("contentPanier");
-		window['nbVelo'] = document.getElementById("veloDetails");
+	 if(!sessionStorage.getItem('saveName'))
+	 {	if(this.contents)
+		{this.clearItem()};
+		sessionStorage.setItem(this.keyChoice,this.contents);
+	
+		contentPanierDevice.style.display = "flex";
+		contentPanierDesktop.style.display = "flex";	
+		contentPanierDevice.textContent += this.contents;
+		contentPanierDesktop.textContent += this.contents;
+		btnSignature.addEventListener("click", (e) => {this.signItem();});
+	  }
+	}
 
-		contentPanier.style.display = "flex";
+
+
+	signItem()
+	{
+		this.saveItem();
+		let objDisplayChrono = new Display('btnSignature', 'chronoDesktop');//creation de l'affichage div du chrono
+		let objDisplayPayment = new Display('btnSignature', 'payment');//creation de l'affichage div du paiement
+		if(this.contents2 > 0 )
+		{
+		sessionStorage.setItem(this.keyChoice,this.contents);
 		this.contents2 -= 1;
-		nbVelo.textContent = this.contents2;//on deduit un vélo
-			
-			if(this.contents === null)//si le panier est vide	
-			{contentPanier.textContent += this.contents;}//ajout de la data
-
-			else{
-			//this.clearItem();
-			contentPanier.textContent += this.contents;} //sinon appel de la fonction clearItem puis ajout de la data
-	}
-
-
-	reservation()
-	{
-		//ObjetChrono
-		var chrono = new Chrono(300000, 60000);
-		var contentPanier = document.getElementById("contentPanier");
-		document.getElementById('chrono').style.display = 'block';
+		}
 		
 	}
 
-
-	/*clearItem()
+	saveItem()
 	{
-		console.log(this.contents);
+		  sessionStorage.setItem("saveName", this.contents);
+		  sessionStorage.setItem("stateReservation", "Réservation accepté");
+		  if(!sessionStorage.getItem("saveChrono"))
+		  {window['objChrono'] = new Chrono(1140000, 1000);}
+		  else
+		  {console.log("saveChrono present")}	
+
+	}
+
+	
+
+	clearItem()
+	{
+		sessionStorage.removeItem(this.keyChoice);
+		contentPanierDevice.textContent = "";
+		contentPanierDesktop.textContent = "";
+	}
 		
-		var contentPanier = document.getElementById("contentPanier");
-		sessionStorage.clear(this.choice);
-		contentPanier.textContent = "";
-		document.getElementById('chrono').style.display = 'none';
-		//nbVelo = document.getElementById("veloDetails");
-		//this.contents2 += 1;
-		//nbVelo.textContent = this.contents2;
-		
-	}*/
 
 }

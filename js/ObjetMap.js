@@ -2,8 +2,8 @@
 class Map
 {
 
-	constructor(idMap,ville,lat,lng,zoom,data)
-	{
+constructor(idMap,ville,lat,lng,zoom,data)
+{
 		
 		this.idMap = idMap;
 		this.ville = ville;
@@ -19,7 +19,7 @@ class Map
   		window['map'] = map;
 
   		//creation de la map
-	    ville = {lat: this.lat, lng: this.lng};// location
+	    ville = {lat: this.lat, lng: this.lng};//location
   		map = new google.maps.Map(
 	    document.getElementById(this.idMap), {zoom: this.zoom, center: ville});// centré au niveau du choix de la ville
 
@@ -28,148 +28,189 @@ class Map
   		this.initMapMarker();
   		this.geolocation();
   		
+  		
+  		
 
   		
-	}
+}
 
 
 //INITMAP METHODE----------------------------------------------------------------------------------------------
-		initMapMarker()	{
+initMapMarker()
+{
 	
-	  // location
-	  this.ville = {lat: this.lat, lng: this.lng};
+	  	//location
+	  	this.ville = {lat: this.lat, lng: this.lng};
 
-	  // centré au niveau du choix de la ville (latitude,longitude)
+	  	// création de la map centré au niveau du choix de la ville (latitude,longitude)
 	  	map = new google.maps.Map(
-	     document.getElementById(this.idMap), {zoom: this.zoom, center: this.ville});
+	    document.getElementById(this.idMap), {zoom: this.zoom, center: this.ville});
 
-	  	 this.infoWindowGeo = new google.maps.InfoWindow;
+	  	//création objet geolocalisation
+	  	this.infoWindowGeo = new google.maps.InfoWindow;
 
 	  	var markers = [];
-	  //création des marqueurs avec array JCDecaux
+
+	  	//création des marqueurs avec array JCDecaux
 	    var iconBase = 'image/iconeVelo.png';
-	     	  for (let i = 0; i < data.length; i++) {
-        var markerOptions = {
+	    for (let i = 0; i < data.length; i++)
+	    {
+        	var markerOptions = {
             position: new google.maps.LatLng(data[i].position.lat, data[i].position.lng),
             info: data[i],
             icon: iconBase
-        };
-        let marker = new google.maps.Marker(markerOptions);
-        markers.push(marker);
-        
-      
+        	};
+        	let marker = new google.maps.Marker(markerOptions);
+        	
 
-         marker.addListener('click',  toggleBounce);
+        	//création des markerCluster
+        	markers.push(marker);
+			//création écouteur pour l'animation
+        	marker.addListener('click', (e) => {toggleBounce(e);});
 
-function toggleBounce()
-	                {
-	                			
-	                	 //enleve l'animation à tous les markers
-	                	 for(var j = 0; j < markers.length; j++)
-			                   {markers[j].setAnimation(null);}   
-	                    		
+        	//création écouteur pour storage
+        	//marker.addListener('click', (e) => {storageData(e);});
+
+
+
+
+
+        	
+			function toggleBounce(e)
+			{
+
+						
+	                	//enleve l'animation à tous les markers
+			            for(var j = 0; j < markers.length; j++)
+					    {
+					            markers[j].setAnimation(null); 
+					           
+						}
+	                    	
 	                    if (marker.getAnimation() !== null)
-	                    {
-	                    		                 		
-			                   marker.setAnimation(null);
+	                    {	                    		                 		
+			            	marker.setAnimation(null);
 
-			                    //textContent evite attaque XSS
-			                    //efface les details si existe
-			                    //document.getElementById("statusDetails").textContent = ""; 
-			                    //document.getElementById("nomDetails").textContent = ""; 
-			                    //document.getElementById("addressDetails").textContent = ""; 
-			                    //document.getElementById("opeDetails").textContent = ""; 
-			                    //document.getElementById("dispoDetails").textContent = ""; 
-			                    //document.getElementById("veloDetails").textContent = ""; 
-			                    //document.getElementById("paiementDetails").textContent = ""; 
-
-
-	                    	} 
+			            	if(payment.style.display !== 'none')
+			            		{console.log('veuillez vider le panier avant')}
+			            	else{objStorage.clearItem();};
+	                    } 
 	                   
 	                    		
-	                    		else{
-			               		//place l'animation au marker cliqué
-			                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                		else if(marker.getAnimation() === null)
+                		{
 
-			                    //efface les details
-			                    document.getElementById("statusDetails").textContent = ""; 
-			                    document.getElementById("nomDetails").textContent = ""; 
-			                    document.getElementById("addressDetails").textContent = ""; 
-			                    document.getElementById("opeDetails").textContent = ""; 
-			                    document.getElementById("dispoDetails").textContent = ""; 
-			                    document.getElementById("veloDetails").textContent = ""; 
-			                    document.getElementById("paiementDetails").textContent = "";
+                				
+				               		//place l'animation au marker cliqué
+				                    marker.setAnimation(google.maps.Animation.BOUNCE);
+				                    
 
-			                    //ajoute les details
-			                    document.getElementById("statusDetails").textContent = data[i].status; 
-			                    document.getElementById("nomDetails").textContent = data[i].name; 
-			                    document.getElementById("addressDetails").textContent = data[i].address; 
-			                    document.getElementById("opeDetails").textContent = data[i].bike_stands; 
-			                    document.getElementById("dispoDetails").textContent = data[i].available_bike_stands; 
-			                    document.getElementById("veloDetails").textContent = data[i].available_bikes; 
-			                    document.getElementById("paiementDetails").textContent = data[i].banking;  
-			                    
-			                    //recuperation du choix du client au toggle		                    
-			                    //ObjetStorage
-			                    var objStorage = new Storage('stations', data[i].name, data[i].available_bikes);
-			                    }
+				                    //ajoute les details
+				                    document.getElementById("statusDetails").textContent = data[i].status; 
+				                    document.getElementById("nomDetails").textContent = data[i].name; 
+				                    document.getElementById("addressDetails").textContent = data[i].address; 
+				                    document.getElementById("opeDetails").textContent = data[i].bike_stands; 
+				                    document.getElementById("dispoDetails").textContent = data[i].available_bike_stands; 
+				                    document.getElementById("veloDetails").textContent = data[i].available_bikes; 
+				                    document.getElementById("paiementDetails").textContent = data[i].banking; 
 
-			                	
-		
-								 if(data[i].status === "OPEN")
-		                    	{document.getElementById("stationDetails").style.backgroundColor = "green";}
+				                 
 
-			                    else{document.getElementById("stationDetails").style.backgroundColor = "red";}
-								    	              
-	                        
+        							//affiche la div reservation
+				                    document.getElementById("stationDetails").style.display = "flex";
+				                   
 
-	                          
-	                            
-	                 }
+				                    //si il n'y a plus de vélo dans la station	                    
+									if(data[i].available_bikes===0)
+									{
+										marker.setAnimation(null);	
+										document.getElementById("veloDetails").style.color ="red";							 	
+									}
+									
+
+									else if(data[i].available_bikes>0 && data[i].status === "OPEN")
+									{
+									
+									document.getElementById("veloDetails").style.color ="white";	
+        							var contentPanierDesktop = document.getElementById("contentPanierDesktop");
+      								contentPanierDesktop.textContent += "";
+
+      								//ObjetSTORAGE
+									window['objStorage'] = new Storage("stations", data[i].name, data[i].available_bikes);						
+								    }
+
+								    else
+								    	{alert('la station est fermé pour le moment')};
+
+								   
+									                  
+						}
+
+						//change couleur du back-ground selon status green/red
+						if(data[i].status === "OPEN")
+            			{document.getElementById("stationDetails").style.backgroundColor = "green";}
+
+	        			else{document.getElementById("stationDetails").style.backgroundColor = "red";}  
+
+	        				           
+	    	}
 
 
-	              let contentStringGreen = "<div style='background-color: green; color: white; text-align: center' >"+data[i].status+"<br>"+data[i].name+"<br>"+data[i].available_bikes+"</div>";
-	              let contentStringRed = "<div style='background-color: red; color: white; text-align: center' >"+data[i].status+"<br>"+data[i].name+"<br>"+data[i].available_bikes+"</div>";
-	           	  let contentString;
 
-	              if(data[i].status === 'OPEN')
-	              	{contentString = contentStringGreen}//infobulle verte
+	    	//INFOBULLE
+	        let contentStringGreen = "<div style='background-color: green; color: white; text-align: center' >"+data[i].status+"<br>"+data[i].name+"<br>"+data[i].available_bikes+"</div>";
+	        let contentStringRed = "<div style='background-color: red; color: white; text-align: center' >"+data[i].status+"<br>"+data[i].name+"<br>"+data[i].available_bikes+"</div>";
+	        let contentString;
+	       
+	        {document.getElementById("veloDetails").style.color ="red";}
+	        if(data[i].status === 'OPEN')
+	        {contentString = contentStringGreen}//infobulle verte
 
-	              else
-	              	{contentString = contentStringRed;};//infobulle rouge
+	        else
+	        {contentString = contentStringRed;};//infobulle rouge
+
+
+
+	    	
 	         
-	             //creation de l'infobulle        
-	            let infoWindowOptions = {
-	            content: contentString
-	        	};
+	        //creation de l'infobulle        
+	        let infoWindowOptions = {
+	        content: contentString
+	       	};
 	           
-	            // creation de l'info sur la map
-	            let infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+	        // creation de l'info sur la map
+	        let infoWindow = new google.maps.InfoWindow(infoWindowOptions);
 	       		
-	            //ajout ecouteur sur marker
-	            google.maps.event.addListener(marker, 'click',  function() {
-	                infoWindow.open(map, marker);
-	      
-	            });
-	     	 
-	          }
+	        //ajout ecouteur sur marker
+	        google.maps.event.addListener(marker, 'click',  function() {
+	        infoWindow.open(map, marker);
+	        });
 
 
 	        
-	          var markerCluster = new MarkerClusterer(map, markers,
-            {maxZoom: 23, imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});          
+	     	 
+		}
 
-	}
+		var markerCluster = new MarkerClusterer(map, markers,
+        	{maxZoom: 23, imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
+
+
+}
+
+
+
 
 
 
 //GEOLOCATION METHODE -------------------------------------------------------------------------------------------
-	geolocation(){
+geolocation()
+{
 		// Try HTML5 geolocation.
 		var infoWindowGeo = this.infoWindowGeo;
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
+        if (navigator.geolocation)
+        {
+        	navigator.geolocation.getCurrentPosition(function(position) {
+        	var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
@@ -178,23 +219,25 @@ function toggleBounce()
             infoWindowGeo.setContent('Location found.');
             infoWindowGeo.open(map);
             map.setCenter(pos);
-          }, function() {
+        }, function() {
             handleLocationError(true, infoWindowGeo, map.getCenter());
           });
-        } else {
+        } 
+        else
+        {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindowGeo, map.getCenter());
         }
-         function handleLocationError(browserHasGeolocation, infoWindowGeo, pos) {
+
+        function handleLocationError(browserHasGeolocation, infoWindowGeo, pos) {
         infoWindowGeo.setPosition(pos);
         infoWindowGeo.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
+                              'Error: Your browser doesn\'t support geolocation.');																					
+      	}
 
-																					
-      }
-  }
-//-------------------------------------------------------------------------------------------------------------------------
+
+}
  
 
 }

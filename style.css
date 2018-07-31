@@ -1,6 +1,5 @@
 body{
 	display: flex;
-
 }
 
 header{
@@ -57,17 +56,19 @@ aside {
 	flex-direction: column;
 }
 
+canvas{
+background-color: yellow;
+}
 
 #guide{
-	height: 50%;
-	width: 50%;
+	width: 100%;
+	height: 188px;
 }
 
 #logo{
 	text-align: center;
 	height: 50px;
 	color: rgb(0, 148, 192);
-
 }
 
 #dashboard{
@@ -230,7 +231,7 @@ justify-content: center;
 
 
 
-#navS-body{
+#navEtape{
 background-color: #1d5162;
 opacity: 0.9;
 border: inset rgba(46,52,57,1) 1px;
@@ -284,13 +285,19 @@ flex-direction: column;
 	display: none;
 }
 
-.stationDetails{
+#stationDetails{
 	color: white;
 	border-radius: 6px ;
 	opacity: 1;
 	box-shadow: 2px 2px 2px gray, -1px -1px 2px white;
 	margin: 3px;
 	text-align: center;
+	display: none;
+	flex-direction: column;
+}
+
+#stationAside{
+
 }
 
 #btnReserver{
@@ -332,8 +339,6 @@ flex-direction: column;
 	border-radius: 5px;
 	box-shadow: 2px 2px 2px gray,-1px -1px 2px white;
 	background-color: rgb(0, 148, 192);
-	height: 100px;
-
 }
 
 .vignetteDisplay{
@@ -344,17 +349,6 @@ flex-direction: column;
 
 }
 
-
-#checkForm{
-border-radius: 6px;
-opacity: 1;
-box-shadow: 2px 2px 2px gray, -1px -1px 2px white;
-margin: 3px;
-height: 75px;
-color: black;
-padding: 5px;
-background-color: rgba(14, 248, 248, 0.23);
-}
 
 .divHome{
 	display: flex;
@@ -391,14 +385,13 @@ background-color: rgba(14, 248, 248, 0.23);
 	color: black;
 }
 
-#contentPanier{
+#contentPanierDesktop{
 	text-align: center;
 	flex-direction: column;
     align-items: center;
     background-color: white;
     border-radius: 7px;
     margin: 10px;
-    display: none;
 }
 
 #widgetContact{
@@ -408,21 +401,24 @@ background-color: rgba(14, 248, 248, 0.23);
 #widgetContactCorps{
 	height: 528px;
     width: 363px;
+    margin-top: 80px;
 }
 
 #formContact{
 	display: flex;
 	flex-direction: column;
+
 }
 
 #divSmartphone{
 	display: none;
 }
 
-#chrono{
+.chronoDesktop{
 	background-color: red;
 	text-align: center;
 	color: white;
+	justify-content: center;
 }
 
 .etapeText{
@@ -448,6 +444,13 @@ background-color: rgba(14, 248, 248, 0.23);
     border: solid white;
 }
 
+#panierDevice{
+	display: none;
+}
+
+
+
+
 
 @media only screen and (min-width: 768px) {
 /* tablettes et ordinateurs */
@@ -464,42 +467,109 @@ body{
 	flex-direction: column;
 }
 
-.navS, .navP, #btnClear, #panier{
-	display: none;
-}
-
-#navigationSecond{
-	display: flex;
-}
-
-.dash:focus + .navP, .navS{
-	display: block;
-}
-
-.widget{
-	height: 100%;
+textarea{
+	height: 100px;
 }
 
 button{
 	width: 100%;
 }
 
+#container{
+	flex-direction: column;
+}
+
+.navS, #btnClear{
+	display: none;
+}
+
+#navigationSecond{
+	display: flex;
+	flex-direction: column;
+}
+
+.dash:focus + .navP, .navS{
+	display: block;
+}
+
+#guide{
+	display: none;
+}
 
 #divSmartphone{
 	display: flex;
+	height: 1000px;
 }
 
-#signature:hover{
-	transform: scale(1.5);
+#navEtape, .etapeText{
+	display: none;
 }
 
+#navS-title{
+	display: none;
+}
+
+.widget{
+	flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px grey;
+    border: solid 2px black;
+    border-radius: 7px;
+    height: 510px;
+}
+
+#widgetContactCorps{
+	margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+#device{
+	display: none;
+}
+
+.button{
+	display: flex;
+}
+
+#panierDesktop{
+	display: none;
+}
+
+#panierDevice{
+	display: flex;
+}
+
+#headerDevice{
+	display: flex;
+	justify-content: space-between;
+}
+
+#logo{
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+#contentPanierDevice{
+	text-align: center;
+	flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 7px;
+    margin: 10px;
+    display: none;
+}
+
+#chronoDevice{
+	background-color: red;
+	text-align: center;
+	color: white;
 }
 
 
-
-
-
-
+}
 
 
 
