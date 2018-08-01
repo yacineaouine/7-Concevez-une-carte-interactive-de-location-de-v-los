@@ -16,13 +16,16 @@ class Storage
 		window['nbVelo'] = document.getElementById('veloDetails');
 		window['paymentDesktop'] = document.getElementById('paymentDesktop');
 		window['payment'] = document.getElementsByClassName('payment[1]');
+		//btn utilisé pourl'objet
 		window['btnSignature'] = document.getElementById('btnSignature');
 		window['btnReserver'] = document.getElementById('btnReserver');
-		btnReserver.addEventListener('click', (e) => {this.myItem();});
-		 //affichage blocksignature
-		//objetDISPLAY
-		var objReserver = new Display('btnReserver', 'reserver');
 
+		btnReserver.addEventListener('click', (e) => {this.myItem();});
+
+		if(!sessionStorage.getItem('saveChrono'))
+		{
+			var objReserver = new Display('btnReserver', 'reserver');
+		}
 	}
 	
 
@@ -30,46 +33,70 @@ class Storage
 
 	}
 
-
+	//à la création on crée une sessionStor pr modifier le panier
 	myItem()
 	{
-	 if(!sessionStorage.getItem('saveName'))
-	 {	if(this.contents)
-		{this.clearItem()};
+		//si une station est déjà réservé,on demande si la personne souhaite en changer
+		if(sessionStorage.getItem('saveChrono'))
+		{
+			//affichage blocksignature
+			//objetDISPLAY
+			console.log("ObjetStorage: chrono present");
+			var reponse = prompt("voulez-vous changez de station?","o/n");
+			if(reponse == "o")
+			{
+				var objReserver = new Display('btnReserver', 'reserver');
+				this.clearItemAll();
+
+			}
+
+
+		}
+
+	 	if(this.contents)//à partir du second click des marker 
+		{this.clearItem()};//on efface le marker
 		sessionStorage.setItem(this.keyChoice,this.contents);
+		sessionStorage.setItem("contents2",this.contents2)
 	
 		contentPanierDevice.style.display = "flex";
 		contentPanierDesktop.style.display = "flex";	
 		contentPanierDevice.textContent += this.contents;
 		contentPanierDesktop.textContent += this.contents;
 		btnSignature.addEventListener("click", (e) => {this.signItem();});
-	  }
+	  
 	}
 
 
-
+	//à la signature on stock le sessionStorage pr valider le panier
 	signItem()
 	{
 		this.saveItem();
-		let objDisplayChrono = new Display('btnSignature', 'chronoDesktop');//creation de l'affichage div du chrono
-		let objDisplayPayment = new Display('btnSignature', 'payment');//creation de l'affichage div du paiement
+		//let objDisplayPayment = new Display('btnSignature', 'payment');//creation de l'affichage div du paiement
 		if(this.contents2 > 0 )
 		{
-		sessionStorage.setItem(this.keyChoice,this.contents);
-		this.contents2 -= 1;
+				sessionStorage.setItem(this.keyChoice,this.contents);
+				sessionStorage.setItem("contents2",this.contents2);
+
+				if(!sessionStorage.getItem('saveChrono'))
+				{
+				var objChronoItem = new Chrono(60000,1000,"click",btnSignature);
+				this.contents2 -= 1;
+				document.getElementById("veloDetails").textContent = sessionStorage.getItem('contents2')
+				}
+				else
+				{
+					console.log("ObjetStorage: chrono present");
+				}
+
 		}
 		
 	}
 
+	//à la signature on sauvegarde la donnée définitive
 	saveItem()
 	{
-		  sessionStorage.setItem("saveName", this.contents);
+		  sessionStorage.setItem(this.keyChoice, this.contents);
 		  sessionStorage.setItem("stateReservation", "Réservation accepté");
-		  if(!sessionStorage.getItem("saveChrono"))
-		  {window['objChrono'] = new Chrono(1140000, 1000);}
-		  else
-		  {console.log("saveChrono present")}	
-
 	}
 
 	
@@ -79,6 +106,19 @@ class Storage
 		sessionStorage.removeItem(this.keyChoice);
 		contentPanierDevice.textContent = "";
 		contentPanierDesktop.textContent = "";
+	}
+
+	clearItemAll()
+	{
+		sessionStorage.clear();
+		contentPanierDevice.textContent = "";
+		contentPanierDesktop.textContent = "";
+		chronoIdDesktop.textContent = "";
+		chronoDevice.textContent = "";
+		chronoIdDesktop.style.display = "none";
+		chronoDevice.style.display = "none";
+
+
 	}
 		
 

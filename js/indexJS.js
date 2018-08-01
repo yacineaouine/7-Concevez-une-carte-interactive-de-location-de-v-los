@@ -23,25 +23,52 @@ var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
 //ObjetMAP
 var mapJS = new Map('map','lyon', 45.75, 4.85, 14, stations);
 
+});
 
 
+
+
+contentPanierDesktop.textContent += sessionStorage.getItem('stations');
+
+if(sessionStorage.getItem("saveChrono"))
+{//recuperation du chrono dans le sessionStorage en temps réel
+let minStorage = sessionStorage.getItem('saveMinute');
+let secStorage = sessionStorage.getItem('saveSeconde');
+
+//on efface contenu du chrono dans div
+//chronoIdDesktop.textContent += "";
+
+//on crée le nvx chrono à partir de la minute enregistré
+var objChrono2 = new Chrono(minStorage*60000, 1000,"load");
+objChrono2;
+
+//on update le sessionStorage "saveChrono"
+sessionStorage.setItem("saveChrono", chronoIdDesktop.textContent);
+
+//on recupere le nvx chrono du storage
+chronoIdDesktop.textContent += sessionStorage.getItem('saveChrono');
+
+//on l'affiche dans sa div
+chronoIdDesktop.textContent += sessionStorage.getItem('saveChrono');
+let objDisplayChrono = new Display('btnSignature', 'chronoDesktop');//creation de l'affichage div du chrono
+
+};
+
+
+//recuperation "paiement accepté" dans sessionStorage" et affichage
+var paymentDesktop = document.getElementById("paymentDesktop");
+paymentDesktop.content += sessionStorage.getItem('stateReservation');
+
+
+
+document.getElementById("btnClearItemDesktop").addEventListener("click", function(){
+    sessionStorage.clear();
+    chronoIdDesktop.textContent += "";
+    contentPanierDesktop.textContent += "";
 
 });
 
 
-contentPanierDesktop.textContent += sessionStorage.getItem("saveName");
-chronoIdDesktop.textContent += sessionStorage.getItem("saveChrono");
-var paymentDesktop = document.getElementById("paymentDesktop");
-paymentDesktop.content += sessionStorage.getItem('stateReservation');
-
-var divReserver = document.getElementById("divReserver");
-
-
-if(sessionStorage.getItem('saveName'))//si storage présent
-{
-	paymentDesktop.style.display = "block";//affichage "réservation"  
-	divReserver.style.display = "none";//disparition du canvas
-}
 
 
 

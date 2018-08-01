@@ -13,9 +13,6 @@ constructor(idMap,ville,lat,lng,zoom,data)
 		window['data'] = data;
 		
 	
-
-
-		//this.dataStore = window['dataStore'];
   		window['map'] = map;
 
   		//creation de la map
@@ -135,8 +132,10 @@ initMapMarker()
         							var contentPanierDesktop = document.getElementById("contentPanierDesktop");
       								contentPanierDesktop.textContent += "";
 
-      								//ObjetSTORAGE
-									window['objStorage'] = new Storage("stations", data[i].name, data[i].available_bikes);						
+      								//objetSTORAGE
+									window['objStorage'] = new Storage("stations", data[i].name, data[i].available_bikes);	
+								
+					
 								    }
 
 								    else
