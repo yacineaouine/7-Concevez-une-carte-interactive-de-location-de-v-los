@@ -13,6 +13,7 @@ var objCompte = new Display('btnCompte', 'divCompte', 'divNone');//affichage sec
 var sliderJS = new Slider('preview', 'next', 'vignette', 'slide');
 
 
+
 //ObjetAJAX
  var dataGet = new ajaxCall("https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=4c0dd7bc629dffa5ae869d96fce6b4eec7760d7c", "GET", function dataJSON(reponse) {
  	
@@ -25,15 +26,21 @@ var mapJS = new Map('map','lyon', 45.75, 4.85, 14, stations);
 
 });
 
+if(sessionStorage.getItem("saveChrono") === "temps restant: -1 min 60 sec")
+{
+	sessionStorage.setItem("saveChrono", "");
+}
 
 
 
-contentPanierDesktop.textContent += sessionStorage.getItem('stations');
+
+//ObjetCHRONO crée au load
 
 if(sessionStorage.getItem("saveChrono"))
 {//recuperation du chrono dans le sessionStorage en temps réel
-let minStorage = sessionStorage.getItem('saveMinute');
-let secStorage = sessionStorage.getItem('saveSeconde');
+
+let minStorage = sessionStorage.getItem('saveMinute');//minute stocké en tps réel
+let secStorage = sessionStorage.getItem('saveSeconde');//secondes stocké en tps réel
 
 //on efface contenu du chrono dans div
 //chronoIdDesktop.textContent += "";
@@ -55,18 +62,32 @@ let objDisplayChrono = new Display('btnSignature', 'chronoDesktop');//creation d
 };
 
 
+
+//PANIER
+
 //recuperation "paiement accepté" dans sessionStorage" et affichage
-var paymentDesktop = document.getElementById("paymentDesktop");
+var paymentDesktop = document.getElementById("paymentDesktop");//Desktop
 paymentDesktop.content += sessionStorage.getItem('stateReservation');
 
+var paymentDevice = document.getElementById("paymentDevice");//Device
+paymentDevice.content += sessionStorage.getItem('stateReservation');
+
+contentPanierDesktop.textContent += sessionStorage.getItem('stations');//Desktop
+contentPanierDevice.textContent += sessionStorage.getItem('stations');//Mobile
 
 
-document.getElementById("btnClearItemDesktop").addEventListener("click", function(){
+if(sessionStorage.getItem("saveChrono") === "")
+{
+	document.getElementById("btnClearItemDesktop").addEventListener("click", function(){
     sessionStorage.clear();
     chronoIdDesktop.textContent += "";
-    contentPanierDesktop.textContent += "";
+    chronoIdDesktop.style.display = "none";
+    contentPanierDesktop.textContent = "";
+    paymentDesktop.style.display = "flex";
+    sessionStorage.setItem("stations", "");
+	});
 
-});
+}
 
 
 

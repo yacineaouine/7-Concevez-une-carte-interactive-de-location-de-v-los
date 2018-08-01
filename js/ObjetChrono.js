@@ -17,17 +17,17 @@ class Chrono
 		if(event != "load")
 		{
 			console.log(event);
-			idBtn.addEventListener(event, (e) => {this.interval();});
+			idBtn.addEventListener(event, this.interval());
 		}
 		//si l'evenement est load on relance le chrono
 		console.log(event);
 
 		if(event == "load")
 		{
-			console.log(event);
+
 			if(sessionStorage.getItem('saveMinute') == 0 && sessionStorage.getItem('saveSeconde') == 0 || sessionStorage.getItem('saveChrono') == null)
 			{
-				this.clearChrono();
+				delete this;
 			}
 
 			else
@@ -115,20 +115,20 @@ class Chrono
 			{				
 				chronoIdDesktop.textContent = '';
 				chronoIdDesktop.textContent += 'temps écoulé';
+				chronoIdDesktop.style.display = 'none'
 				chronoDevice.textContent = '';
-				chronoDevice.textContent += 'temps écoulé';		
+				chronoDevice.textContent += 'temps écoulé';	
+				chronoDevice.style.display = 'none';
+					
+				delete this;	
+				console.log(this);
+				
 			}
 				
-				
+			
 	}
 
 
-	clearChrono()
-	{
-	this.limit = null;
-	this.interTime = null;
-	this.event = null;
-	this.idBtn = null;	
-	}
+	
 	
 }

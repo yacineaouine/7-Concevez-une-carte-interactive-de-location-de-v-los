@@ -60,6 +60,8 @@ canvas{
 background-color: yellow;
 }
 
+
+
 #guide{
 	width: 100%;
 	height: 188px;
@@ -370,6 +372,7 @@ flex-direction: column;
     border: solid 2px black;
     border-radius: 7px;
     height: 716px;
+    margin: 15px;
 }
 
 .etapeGif{
@@ -448,7 +451,9 @@ flex-direction: column;
 	display: none;
 }
 
-
+#logoDevice{
+	display: none;
+}
 
 
 
@@ -537,19 +542,22 @@ button{
 	display: none;
 }
 
-#panierDevice{
-	display: flex;
-}
 
-#headerDevice{
+
+#logoDevice{
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
+	color: rgb(0, 148, 192);
+	font-size: 2em;
+	justify-content: center;
 }
 
 #logo{
-	display: flex;
-	align-items: center;
-	height: 100%;
+	display: none;
+	text-align: center;
+	height: 50px;
+	color: rgb(0, 148, 192);
+
 }
 
 #contentPanierDevice{
@@ -566,6 +574,21 @@ button{
 	background-color: red;
 	text-align: center;
 	color: white;
+
+}
+
+#btnClearItemDevice{
+	width: 40px;
+}
+
+#panierDevice{
+    justify-content: center;
+    display: flex;
+	height: 100%;
+}
+
+#panier{
+	width: 100%;
 }
 
 

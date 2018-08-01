@@ -33,21 +33,21 @@ class Storage
 
 	}
 
-	//à la création on crée une sessionStor pr modifier le panier
+	//à la création on crée une sessionStorage pr modifier le panier
 	myItem()
 	{
 		//si une station est déjà réservé,on demande si la personne souhaite en changer
 		if(sessionStorage.getItem('saveChrono'))
 		{
-			//affichage blocksignature
-			//objetDISPLAY
-			console.log("ObjetStorage: chrono present");
-			var reponse = prompt("voulez-vous changez de station?","o/n");
+			
+			var reponse = prompt("Voulez-vous changez de station?","o/n");
 			if(reponse == "o")
 			{
+				//affichage block signature
+				//objetDISPLAY
 				var objReserver = new Display('btnReserver', 'reserver');
-				this.clearItemAll();
 
+				this.clearItemAll();
 			}
 
 
@@ -71,7 +71,7 @@ class Storage
 	signItem()
 	{
 		this.saveItem();
-		//let objDisplayPayment = new Display('btnSignature', 'payment');//creation de l'affichage div du paiement
+
 		if(this.contents2 > 0 )
 		{
 				sessionStorage.setItem(this.keyChoice,this.contents);
@@ -79,9 +79,10 @@ class Storage
 
 				if(!sessionStorage.getItem('saveChrono'))
 				{
+				//ObjetChrono crée au click du btn Signature
 				var objChronoItem = new Chrono(60000,1000,"click",btnSignature);
 				this.contents2 -= 1;
-				document.getElementById("veloDetails").textContent = sessionStorage.getItem('contents2')
+				document.getElementById("veloDetails").textContent -= sessionStorage.getItem('contents2')
 				}
 				else
 				{

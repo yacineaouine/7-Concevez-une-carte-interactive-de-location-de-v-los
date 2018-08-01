@@ -132,10 +132,9 @@ initMapMarker()
         							var contentPanierDesktop = document.getElementById("contentPanierDesktop");
       								contentPanierDesktop.textContent += "";
 
-      								//objetSTORAGE
+      								//objetSTORAGE appelé au click du marker
 									window['objStorage'] = new Storage("stations", data[i].name, data[i].available_bikes);	
 								
-					
 								    }
 
 								    else
