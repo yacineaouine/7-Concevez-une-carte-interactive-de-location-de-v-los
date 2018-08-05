@@ -1,41 +1,16 @@
-body{
-	display: flex;
-}
-
-header{
-	display: flex;
-	flex-direction: column;
-	height: 10px;
-}
-
-
-h1{
-	text-align: center;
-	background-color: rgba(46,52,57,0.5);
-}
-
-h2{
-	text-align: center;
-}
-
-
-
-ul{
-	list-style: none;
-	justify-content: center;
-}
 a{
 	text-decoration: none;
 }
 
-img{
-	position: relative;
+aside {
+	display: flex;
+	flex-direction: column;
 }
 
 
-nav{
+body{
 	display: flex;
-	flex-direction: column;
+	height: auto;
 }
 
 button{
@@ -51,202 +26,58 @@ button:hover{
 	background-color: rgba(0,0,0,0.5);
 }
 
-aside {
-	display: flex;
-	flex-direction: column;
-}
-
-canvas{
-background-color: yellow;
-}
-
-
-
-#guide{
-	width: 100%;
-	height: 188px;
-}
-
-#logo{
+h1{
 	text-align: center;
-	height: 50px;
-	color: rgb(0, 148, 192);
+	background-color: rgba(46,52,57,0.5);
+	display: inline-block;
+	width: 100%;
+	margin: 0;
 }
 
-#dashboard{
-padding: 0;
-}
-
-.diaporama, .section-tuto{
-display: flex;
-justify-content: center;
-margin-top: 10px;
-align-self: center;
-}
-
-.vignette{
-	border: outset 1px black;
-	background-color: rgba(0,0,0,0.5);
-	display: none;
+h2{
+	text-align: center;
 }
 
 
-
-.section-map{
-	height: 500px;
-	margin-bottom: 20px;
-}
-
-.station{
-
-	background-color: rgba(0,0,0,0.5);
-	border: 1px solid;
+header{
 	display: flex;
-	align-items: center;
-}
-
-#preview, #next{
-	color: orange;
-}
-
-
-#slide{
-	color: orange;
-	display: block;
-}
-
-
-
-#signature{
-	background-color: white;
-	cursor: url(image/cur1046.cur), auto;
-}
-
-
-
-#navigationMain{
-	padding: 0;
-	background-color: rgba(46,52,57,0.9);
-}
-
-#navigationSecond{
-	padding: 0;
-}
-
-
-
-#tuto{
 	flex-direction: column;
-	align-items: center;
-	background-color: white;
-	box-shadow: 5px 5px 5px 5px grey;
-	border: solid 2px black;
-	border-radius: 7px;
-	height: 716px;
-}
-
-.divTuto{
-	display: none;
-
+	height: 10px;
 }
 
 
-#container
-{
+img{
+	position: relative;
+}
+
+iframe{
+	height: 489px;
+    width: 100%;
+}
+
+nav{
 	display: flex;
-	height: 100%;
-	padding: 0;
+	flex-direction: column;
 }
 
-#section-title{
-	background-color: rgba(46,52,57,0.9);
-	height: 50px;
-    display: flex;
-    justify-content: center;
-    border: outset rgba(46,52,57,1) 1px;
-	color: rgb(0, 148, 192);
+p{
+	color: black;
+	font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    text-align: center;
 }
 
-#section-main{
-	padding: 0;
-	background-color: rgb(238,240,243);
-}
-
-.dash{
-display: flex;
-justify-content: center;
-align-items: center;
-color: black;
-height: 50px;
-border-radius: 7px;
-box-shadow: 5px 5px 5px 5px grey;
-border: outset 1px rgb(124, 143, 159);
-background-color: rgba(255, 255, 255, 0.5);
-}
-
-#navS-title{
-	background-color: rgb(0, 148, 192);
-	height: 50px;
-	border: outset 1px rgba(46,52,57,1);
-	color: white;
-	display: flex;
+ul{
+	list-style: none;
 	justify-content: center;
-	box-shadow: 2px 2px 2px gray,
--1px -1px 2px white;
 }
 
-#home-title{
-	align-items: center;
-justify-content: center;
-}
+/* CLASS */
 
-#contact-title{
-	align-items: center;
-justify-content: center;
-}
-
-#tuto-title{
-	align-items: center;
-justify-content: center;
-}
-
- #map-title{
-	align-items: center;
-justify-content: center;
-}
-
- #compte-title{
-	align-items: center;
-justify-content: center;
-}
-
-.navP{
-	display: flex;
-	border: outset rgba(46,52,57,1) 1px;
-
-}
-
-.navS{
-	display: flex;
-	border: inset rgba(46,52,57,1) 1px;
-}
-
-
-
-#navEtape{
-background-color: #1d5162;
-opacity: 0.9;
-border: inset rgba(46,52,57,1) 1px;
-background-color: transparent;
-height: 267px;
-justify-content: center;
-flex-direction: column;
-}
-
-
-
-#section-corps{
-	margin: 10px;
+.ad{
+	width: 100%;
+    border-bottom: solid black;
+    margin-bottom: 20px;
 }
 
 .btnEtape{
@@ -264,7 +95,6 @@ flex-direction: column;
 	background-color: #ff7907;
 }
 
-}
 
 .btnEtape:hover{
 	background-color: rgba(243,244,247,1);
@@ -274,83 +104,41 @@ flex-direction: column;
 	color: white;
 }
 
+.btnClear{
+	width: 25%;
+    border: solid white;
+}
 
-#map{
-	height: 696px;;
-	width: 100%;
-	border: solid 2px black;
-	border-radius: 7px;	
+.chronoDesktop{
+	background-color: red;
+	text-align: center;
+	color: white;
+	justify-content: center;
+}
+
+.dash{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	height: 50px;
+	border-radius: 7px;
 	box-shadow: 5px 5px 5px 5px grey;
+	border: outset 1px rgb(124, 143, 159);
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.device{
+	display: none;
 }
 
 .divMap{
 	display: none;
 }
 
-#stationDetails{
-	color: white;
-	border-radius: 6px ;
-	opacity: 1;
-	box-shadow: 2px 2px 2px gray, -1px -1px 2px white;
-	margin: 3px;
-	text-align: center;
+.divTuto{
 	display: none;
-	flex-direction: column;
 }
-
-#stationAside{
-
-}
-
-#btnReserver{
-	border-radius: 7px;
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-
-
-
-.reserver{
-	display: none;
-	flex-direction: column;
-}
-
-#sectionSignature{
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-
-
-#titre-stationDetails{
-	background-color: black;
-	border: solid 2px black;
-	color: white;
-
-}
-
-#panier{
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	margin: 5px;
-	padding-top: 5px;
-	border: solid black 2px;
-	border-radius: 5px;
-	box-shadow: 2px 2px 2px gray,-1px -1px 2px white;
-	background-color: rgb(0, 148, 192);
-}
-
-.vignetteDisplay{
-	width: 100%;
-	height: 80%;
-	background-color: white;
-	border: solid black 10px;
-
-}
-
 
 .divHome{
 	display: flex;
@@ -364,28 +152,105 @@ flex-direction: column;
 	display: none;
 }
 
-.widget{
-	    flex-direction: column;
-    align-items: center;
+.diaporama, .section-tuto{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	align-self: center;
+}
+
+.etapeText{
+	display: none;
+	align-items: center;
+	text-align: justify;
+    color: rgb(0, 148, 192);
     background-color: white;
     box-shadow: 5px 5px 5px 5px grey;
     border: solid 2px black;
     border-radius: 7px;
-    height: 716px;
-    margin: 15px;
 }
+
 
 .etapeGif{
 	width: 100%;
 	height: 100%;
 }
 
-#statusDetails{
+.navP{
+	display: flex;
+	border: outset rgba(46,52,57,1) 1px;
+
+}
+
+.navS{
+	display: flex;
+	border: inset rgba(46,52,57,1) 1px;
+}
+
+.payment{
+	display: none;
 	text-align: center;
+	background-color: green;
+	color: white;
+}
+
+.reserver{
+	display: none;
+	flex-direction: column;
 }
 
 .styleDetails{
 	color: black;
+}
+
+.section-map{
+	height: 500px;
+	margin-bottom: 20px;
+}
+
+.station{
+	background-color: rgba(0,0,0,0.5);
+	border: 1px solid;
+	display: none;
+	align-items: center;
+	width: 100%;
+}
+
+.vignetteDisplay{
+	width: 100%;
+	height: 80%;
+	background-color: white;
+	border: solid black 10px;
+}
+
+.vignette{
+	border: outset 1px black;
+	background-color: rgba(0,0,0,0.5);
+	display: none;
+}
+
+.widget{
+	flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px grey;
+    border: solid 2px black;
+    border-radius: 7px;
+    margin: 15px;
+}
+
+
+/* ID */
+
+#baladeImg{
+	width: 100%;
+}
+
+#btnReserver{
+	border-radius: 7px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	display: none;
 }
 
 #contentPanierDesktop{
@@ -395,37 +260,39 @@ flex-direction: column;
     background-color: white;
     border-radius: 7px;
     margin: 10px;
+    border: solid;
+    padding: 8px;
 }
 
-#widgetContact{
-	height: 130px;
+#contact-title{
+	align-items: center;
+	justify-content: center;
 }
 
-#widgetContactCorps{
-	height: 528px;
-    width: 363px;
-    margin-top: 80px;
+
+#compte-title{
+	align-items: center;
+	justify-content: center;
 }
 
-#formContact{
+
+
+#container{
 	display: flex;
-	flex-direction: column;
-
+	height: 100%;
+	padding: 0;
 }
 
 #divSmartphone{
 	display: none;
 }
 
-.chronoDesktop{
-	background-color: red;
-	text-align: center;
-	color: white;
-	justify-content: center;
+#divMyReservation{
+    text-align: center;
 }
 
-.etapeText{
-	display: none;
+#dashboard{
+	padding: 0;
 }
 
 #etapeText1, #etapeText2, #etapeText3,
@@ -434,162 +301,442 @@ flex-direction: column;
 	flex-direction: column;
 }
 
-.payment{
-	display: none;
-	align-self: center;
-	background-color: green;
-	color: white;
-	border-radius: 10px;
+#explanationDesktop{
+	background-color: white;
+    font-style: italic;
+    color: red;
+    font-size: 1.2em;
+    text-align: center;
+    border: solid black;
+    display: block;
 }
 
-.btnClear{
-	width: 25%;
-    border: solid white;
-}
-
-#panierDevice{
+#explanationDevice{
 	display: none;
 }
 
-#logoDevice{
-	display: none;
-}
-
-
-
-@media only screen and (min-width: 768px) {
-/* tablettes et ordinateurs */
-
-}
-
-@media only screen and (max-width: 767px) {
-/* smartphone */
-}
-
-@media only screen and (max-width: 767px) and (orientation: portrait) {
-/* smartphone en mode portait */
-body{
-	flex-direction: column;
-}
-
-textarea{
-	height: 100px;
-}
-
-button{
-	width: 100%;
-}
-
-#container{
-	flex-direction: column;
-}
-
-.navS, #btnClear{
-	display: none;
-}
-
-#navigationSecond{
+#formContact{
 	display: flex;
 	flex-direction: column;
-}
-
-.dash:focus + .navP, .navS{
-	display: block;
 }
 
 #guide{
-	display: none;
+	width: 100%;
+	height: 188px;
+	border-bottom: solid black;
+    padding-bottom: 26px;
 }
 
-#divSmartphone{
-	display: flex;
-	height: 1000px;
-}
-
-#navEtape, .etapeText{
-	display: none;
-}
-
-#navS-title{
-	display: none;
-}
-
-.widget{
-	flex-direction: column;
-    align-items: center;
-    background-color: white;
-    box-shadow: 5px 5px 5px 5px grey;
-    border: solid 2px black;
-    border-radius: 7px;
-    height: 510px;
-}
-
-#widgetContactCorps{
-	margin-top: 40px;
-    margin-bottom: 40px;
-
-}
-
-#device{
-	display: none;
-}
-
-.button{
-	display: flex;
-}
-
-#panierDesktop{
-	display: none;
-}
-
-
-
-#logoDevice{
-	display: flex;
+#home-title{
 	align-items: center;
-	color: rgb(0, 148, 192);
-	font-size: 2em;
 	justify-content: center;
 }
 
-#logo{
+#imgSignature{
+	width: 100%;
+    background-color: white;
+    border: solid;
+    margin-top: 13px;
+}
+
+#logoDevice{
 	display: none;
+}
+
+#logo{
 	text-align: center;
 	height: 50px;
 	color: rgb(0, 148, 192);
-
 }
 
-#contentPanierDevice{
-	text-align: center;
-	flex-direction: column;
-    align-items: center;
-    background-color: white;
-    border-radius: 7px;
-    margin: 10px;
-    display: none;
+#map{
+	height: 696px;;
+	width: 100%;
+	border: solid 2px black;
+	border-radius: 7px;	
+	box-shadow: 5px 5px 5px 5px grey;
 }
 
-#chronoDevice{
-	background-color: red;
-	text-align: center;
+#map-title{
+	align-items: center;
+	justify-content: center;
+}
+
+#myLastReservation{
+	background-color: black;
 	color: white;
+	margin: 2px;
+	border-radius: 12px;
+}
+
+#myLastSignature{
+	background-color: white;
+}
+
+#navigationMain{
+	padding: 0;
+	background-color: rgba(46,52,57,0.9);
 
 }
 
-#btnClearItemDevice{
-	width: 40px;
+#navigationSecond{
+	padding: 0;
+}
+
+#navEtape{
+	background-color: #1d5162;
+	opacity: 0.9;
+	border: inset rgba(46,52,57,1) 1px;
+	background-color: transparent;
+	height: 267px;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#navS-title{
+	background-color: rgb(0, 148, 192);
+	height: 50px;
+	border: outset 1px rgba(46,52,57,1);
+	color: white;
+	display: flex;
+	justify-content: center;
+	box-shadow: 2px 2px 2px gray,
+	-1px -1px 2px white;
+}
+
+#nomDetails{
+	background-color: black;
+	color: white;
+    align-self: center;
+}
+
+#panierIdDevice{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 5px;
+	padding-top: 5px;
+	border: solid black 2px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px gray,-1px -1px 2px white;
+	background-color: rgb(0, 148, 192);	
+}
+
+#panierIdDesktop{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 5px;
+	padding-top: 5px;
+	border: solid black 2px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px gray,-1px -1px 2px white;
+	background-color: rgb(0, 148, 192);	
 }
 
 #panierDevice{
-    justify-content: center;
-    display: flex;
-	height: 100%;
+	display: none;
 }
 
-#panier{
+#preview, #next{
+	color: orange;
+}
+
+#slide{
+	color: orange;
+	display: block;
+	text-align: center;
+}
+
+
+
+#slideText{
+	color: orange;
+	display: block;
+	text-align: center;
+}
+
+#signature:hover{
+	background-color: white;
+	cursor: url(image/cur1046.cur), auto;
+	border: green solid;
+}
+
+#signature{
+	color: white;
+}
+
+
+
+#section-title{
+	background-color: rgba(46,52,57,0.9);
+	height: 50px;
+    display: flex;
+    justify-content: center;
+    border: outset rgba(46,52,57,1) 1px;
+	color: rgb(0, 148, 192);
+}
+
+#section-corps{
+	margin: 10px;
+}
+
+
+#sectionSignature{
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 }
+
+
+#section-main{
+	padding: 0;
+	background-color: rgb(238,240,243);
+	height: auto;
+}
+
+#stationDetails{
+	color: white;
+	border-radius: 6px ;
+	opacity: 1;
+	box-shadow: 2px 2px 2px gray, -1px -1px 2px white;
+	margin: 3px;
+	text-align: center;
+	display: none;
+	flex-direction: column;
+}
+
+#statusDetails{
+	text-align: center;
+}
+
+
+#tuto{
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	box-shadow: 5px 5px 5px 5px grey;
+	border: solid 2px black;
+	border-radius: 7px;
+	height: 716px;
+}
+
+#tuto-title{
+	align-items: center;
+	justify-content: center;
+}
+
+
+#titre-stationDetails{
+	background-color: black;
+	border: solid 2px black;
+	color: white;
+}
+
+#veloDetails{
+	background-color: black;
+    width: 21px;
+    align-self: center;
+    border-radius: 12px;
+}
+
+
+#widgetContactCorps{
+	height: 528px;
+    width: 363px;
+    margin-top: 80px;
+}
+
+
+
+/* BREAKPOINT */
+
+@media only screen and (min-width: 768px){
+/* tablettes et ordinateurs */
+		body{
+			height: auto;
+			width: auto;
+		}
+
+}
+
+
+
+@media only screen and (max-width: 768px) {
+/* smartphone */
+body{
+			height: auto;
+			width: auto;
+			display: flex;
+			flex-direction: column;
+		}
+}
+
+
+
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+/* smartphone en mode portait */
+
+		body{
+			display: flex;
+			flex-direction: column;
+			height: auto;
+		}
+
+		button{
+			width: 100%;
+		}
+
+		textarea{
+			height: 100px;
+		}
+
+		.button{
+			display: flex;
+		}
+
+		.dash:focus + .navP, .navS{
+			display: block;
+		}
+
+		#btnClear{
+			display: none;
+		}
+
+		.widget{
+			flex-direction: column;
+		    align-items: center;
+		    background-color: white;
+		    box-shadow: 5px 5px 5px 5px grey;
+		    border: solid 2px black;
+		    border-radius: 7px;
+		    height: auto;
+		    width: auto;
+		}
+
+		#btnClearItemDevice{
+			background-color: #212529;
+		}
+
+		#contentPanierDevice{
+			text-align: center;
+			flex-direction: column;
+		    align-items: center;
+		    background-color: white;
+		    border-radius: 7px;
+		    margin: 10px;
+		    display: none;
+		}
+
+		#chronoDevice{
+			background-color: red;
+			text-align: center;
+			color: white;
+
+		}
+
+		#container{
+			flex-direction: column;
+		}
+
+
+		#divSmartphone{
+			display: flex;
+			height: auto;
+		}
+
+		#deviceCompte{
+			display: none;
+		}
+
+		#explanationDevice{
+			background-color: white;
+		    font-style: italic;
+		    color: red;
+		    font-size: 1.2em;
+		    text-align: center;
+		    border: solid black;
+		    display: block;
+		}
+
+		#explanationDesktop{
+			display: none;
+		}
+
+		#guide{
+			display: none;
+		}
+
+		#logoDevice{
+			display: flex;
+			align-items: center;
+			color: rgb(0, 148, 192);
+			font-size: 2em;
+			justify-content: center;
+		}
+
+		#logo{
+			display: none;
+			text-align: center;
+			height: 50px;
+			color: rgb(0, 148, 192);
+		}
+
+		#logoLyon{
+			display: none;
+		}
+
+		#myLastSignature{
+			width: 200px;
+		}
+
+		#navigationSecond{
+			display: flex;
+			flex-direction: column;
+		}
+
+		#navEtape, .etapeText{
+			display: none;
+		}
+
+		#navS-title{
+			display: none;
+		}
+
+		#panierDevice{
+		    justify-content: center;
+		    display: flex;
+			height: 100%;
+		}
+
+		#panier{
+			width: 100%;
+		}
+
+		#panierDesktop{
+			display: none;
+		}
+
+		#tuto{
+			height: auto;
+		}
+
+		#widgetContactCorps{
+			margin-top: 40px;
+		    margin-bottom: 40px;
+	        height: auto;
+    		width: auto;
+		}
+
+		#widgetContact{
+			height: 130px;
+		    width: 183px;
+		    justify-content: center;
+		    align-self: center;
+		}
 
 
 }

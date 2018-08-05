@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="fr">
+
 <head>
 	<title>VéloLibreService</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
+  <link rel="icon" type="image/png" href="image/iconeVelo.png" />
 	<link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -22,13 +25,13 @@
 <!-- SECTION 1 DASHBOARD -->
 
 
-  <section class="col-md-8 col-sm-12 col-lg-4" id="dashboard">
+  <section class="col-md-12 col-sm-12 col-lg-4" id="dashboard">
  
           <div class="container" id="container">
 
               <!-- Section dasboard gauche-->
 
-              <div class="col-md-8 col-sm-12 col-lg-6" id="navigationMain">
+              <div class="col-md-6 col-sm-12 col-lg-6" id="navigationMain">
 
                 <div id="headerDevice">
                  <!--logo-->
@@ -57,25 +60,25 @@
                <!--panier desktop-->
                <div id="panierDesktop">
                     <div class="chronoDesktop" id="chronoIdDesktop"></div>
-                    <div id="panier">
-                        <div id="titlePanier"><i class="fas fa-shopping-cart"></i> Panier</div>
+                    <div id="panierIdDesktop">
+                        <div id="titlePanierDesktop"><i class="fas fa-shopping-cart"></i> Panier</div>
                         <div id="contentPanierDesktop"></div>
-                        <div class="payment" id="paymentDesktop">Réservation acceptée</div>
                     </div>
                     <button type="button" class="btnClear" id="btnClearItemDesktop"><i class="fas fa-trash-alt"></i></button>
                 </div>
-
+                <img src="image/transp.png" id="imgSignature" alt="signatureImg">
+                <div class="payment" id="paymentDesktop">Réservation acceptée</div>
             </div>
 
               <!--section dasboard droite-->
 
-                <div class="col-md-8 col-sm-12 col-lg-6" id="navigationSecond">
+                <div class="col-md-6 col-sm-12 col-lg-6" id="navigationSecond">
 
 
                 <!--panier device-->
                 <div id="panierDevice">
-                    <div id="panier">
-                        <div id="titlePanier"><i class="fas fa-shopping-cart"></i> Panier</div>
+                    <div id="panierIdDevice">
+                        <div id="titlePanierDevice"><i class="fas fa-shopping-cart"></i> Panier</div>
                         <div id="contentPanierDevice"></div>
                         <div class="payment" id="paymentDevice">Réservation acceptée</div>
                         <div id="chronoDevice"></div>
@@ -96,9 +99,19 @@
 
                   </div>
                   <!--aside home-->
-                  <div class="divHome divNone" id="ad">
-                     <a href="https://lavilleavelo.org/carte-du-velo-a-lyon/" target=" _blank"><img src="image/velolyon.jpg" id="guide"></a>
+                  <div>
+                     <a href="https://www.grandlyon.com/" target=" _blank"><img src="image/grandlyon.png" class="ad divHome divNone" id="logoLyon" alt="logoGrandLyon"></a>
                   </div>
+                 
+                   <div class="divHome divNone widget">
+                    <p>Vélo Libre Service est une application web. Elle facilite la location de
+                  vélo JC Décaux dans la ville du Grand Lyon.</p>
+                    <p>Pour comprendre le fonctionnement de l'application, un tutoriel
+                  est mis à votre disposition.</p>
+                    <p>Pour tout autre renseignement, vous pouvez nous contacter via notre formulaire.</p>
+                  </div>
+                  
+                  
 
                   <!--widget adresse entreprise pour formulaire de contact-->
                    <div class="divContact divNone widget" id="widgetContact">
@@ -110,41 +123,36 @@
 
                   
                   <!--navigation tuto-->
-                  <div id="device">
-                  <nav class="divTuto divNone col-md-8 col-sm-12 col-lg-12 "  id="navEtape">
-
-                    <button type="button" class="btnEtape" id="btnEtape1" >Etape 1</button>
-                    <button type="button" class="btnEtape" id="btnEtape2">Etape 2</button>
-                    <button type="button" class="btnEtape" id="btnEtape3">Etape 3</button>
-                    <button type="button" class="btnEtape" id="btnEtape4">Etape 4</button>
-                    <button type="button" class="btnEtape" id="btnEtape5">Etape 5</button>
-
-                  </nav>
-                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText1">
-                    <h3>Etape 1</h3>
-                    Cliquer sur le bouton "Reserver un vélo"
-                    La carte s'affiche.
-                  </div>
-                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText2">
-                    <h3>Etape 2</h3>
-                    Cliquer sur le bouton "Reserver un vélo"
-                    La carte s'affiche.
-                  </div>
-                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText3">
-                    <h3>Etape 3</h3>
-                    Cliquer sur le bouton "Reserver un vélo"
-                    La carte s'affiche.
-                  </div>
-                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText4">
-                    <h3>Etape 4</h3>
-                    Cliquer sur le bouton "Reserver un vélo"
-                    La carte s'affiche.
-                  </div>
-                  <div class="divTuto divNone col-md-8 col-sm-12 col-lg-12 etapeText" id="etapeText5">
-                    <h3>Etape 5</h3>
-                    Cliquer sur le bouton "Reserver un vélo"
-                    La carte s'affiche.
-                  </div>
+                  <div id="deviceTuto">
+                 
+                      <div class="divTuto divNone col-md-12 col-sm-12 col-lg-12 etapeText" id="etapeText1">
+                        <h3>Etape 1</h3>
+                        <p>Cliquer sur le bouton "Reserver un vélo" dans la barre de navigation à gauche.
+                        La carte s'affiche.</p>
+                      </div>
+                      <div class="divTuto divNone col-md-12 col-sm-12 col-lg-12 etapeText" id="etapeText2">
+                        <h3>Etape 2</h3>
+                        <p>Cliquer sur l'icône de la station souhaité.
+                        Le détail de la station s'affiche.</p>
+                      </div>
+                      <div class="divTuto divNone col-md-12 col-sm-12 col-lg-12 etapeText" id="etapeText3">
+                        <h3>Etape 3</h3>
+                        <p>Cliquer sur le bouton "Reserver" au bas du détail,
+                        le nom de la station correspondante est ajouté au panier.
+                        Cliquer une seconde fois pour signer.
+                        Cliquer sur le bouton "Signer" pour valider.
+                        La réservation est effective pendant 20 minutes si vous ne fermez la page.</p>
+                      </div>
+                      <div class="divTuto divNone col-md-12 col-sm-12 col-lg-12 etapeText" id="etapeText4">
+                        <h3>Etape 4</h3>
+                        <p>L'onglet mon compte affiche la dernière station validé.</p>
+                      </div>
+                       <div class="divTuto divNone col-md-12 col-sm-12 col-lg-12 etapeText" id="etapeText5">
+                        <h3>Etape 5</h3>
+                        <p>Si une station ne possede plus de vélo,vous ne pouvez pas réserver de vélo.
+                        Il ne peut y avoir qu'une réservation à la fois. Si une nouvelle réservation a lieu, elle remplace la précédente.</p>
+                      </div>
+                 
                 </div>
 
 
@@ -176,8 +184,13 @@
 
                               <div class="reserver" id="divReserver">
                               <canvas id="signature"></canvas>
-                              <button type="button" id="btnSignature" value="submit"> Signature</button>
+                              <button type="button" id="btnSignature" value="submit"> Signer</button>
                               <button type="button" id="btnClearSignature" class="btnClear" value="clear"><i class="fas fa-trash-alt"></i></button>
+                               <div id="explanationDesktop">
+                               Restez appuyé sur la touche "w" pour signer avec la souris.<br>
+                               Signez avec le doigt si tactile.
+                             </div>
+                               <div id="explanationDevice">Signez avec le doigt</div>
                               </div>
 
                       </div>
@@ -187,9 +200,9 @@
                   </aside>
 
                   <!--info compte-->
-                  <div id="device">
+                  <div id="deviceCompte">
                   <aside class="divCompte divNone">
-                    <img src="image/avatar.png">
+                    <img src="image/avatar.png" alt="avatar">
                     <div>Nom: </div>
                     <div>Prenom: </div>
                     <div>Mail: </div>
@@ -210,171 +223,158 @@
 
 
 <!-- SECTION 2 PRINCIPALE -->
-<section class="col-md-8 col-sm-12 col-lg-8" id="section-main">
+<section class="col-md-12 col-sm-12 col-lg-8" id="section-main">
 
-  <!-- Section title -->
-  <div id="section-title"> 
-    <h2 class="divHome divNone">Home</h2>
-    <h2 class="divContact divNone">Contact</h2>
-    <h2 class="divTuto divNone" id="tuto-titre">Tutoriel</h2>
-    <h2 class="divMap divNone" id="map-titre">Réserver un vélo</h2>
-    <h2 class="divCompte divNone" id="compte-titre">Mon Compte</h2>
-  </div>
-
-
-<!-- Section Corps -->
-<div id="section-corps">
-
-
-
-
-  <!-- Section 2.1 Home -->
-  <div class="divHome divNone widget">
-   
-      <h1>Bienvenue sur <br> Vélo Libre Service</h1>
-    <p class="widget">
-       Vélo Libre Service est une application web permettant
-    la location de vélo mise àdisposition par JC Décaux dans la ville
-    du Grand Lyon.
-        Pour comprendre le fonctionnement de l'application, un tutoriel
-    est mis à disposition.
-    </p>
-    
-    <iframe  src="https://www.youtube.com/embed/OnFaAfU5sVM"  allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-    <p>Paragraphe 1</p>
-    <p>Paragraphe 2</p>
-  
-  </div>
-
-
-  <!-- Section 2.2 Contact -->
-  <div class="divContact divNone widget">
-     <div class="widget" id="widgetContactCorps">
-
-            <form action="mailto:venomsnake06400@gmail.com" method="post" enctype="text/plain" class="col-md-8 col-sm-12 col-lg-12" id="formContact">
-
-              Nom: <br>
-              <input type="text" name="firstname">
-              Prénom: <br>
-              <input type="text" name="lastname">
-              Mail: <br>
-              <input type="mail" name="mail">
-              Votre message: <br>
-              <textarea name="message" rows="10" cols="30">
-            
-              </textarea><br><br>
-              <input type="submit" name="">
-            </form>
-
+      <!-- Section title -->
+      <div id="section-title"> 
+        <h2 class="divHome divNone">Home</h2>
+        <h2 class="divContact divNone">Contact</h2>
+        <h2 class="divTuto divNone" id="tuto-titre">Tutoriel</h2>
+        <h2 class="divMap divNone" id="map-titre">Réserver un vélo</h2>
+        <h2 class="divCompte divNone" id="compte-titre">Mon Compte</h2>
       </div>
 
-  </div>
+
+        <!-- Section Corps -->
+        <div id="section-corps">
 
 
+              <img src="image/balade.png" id="baladeImg" alt="velo" class="divHome divNone">
 
-
-  <!-- Section 2.3 Tutoriel -->
-  <div class="col-md-8 col-sm-12 col-lg-12 divTuto divNone" id="tuto">
-
-      <div class="diaporama" id="diapo">
-
-            <div class="vignette vignette1" id="slide">
-              <div>Etape 1</div>
-                <div class="vignetteDisplay">
-                  <img src="image/etape1.gif" class="etapeGif">
-                </div>
+              <!-- Section 2.1 Home -->
+              <div class="divHome divNone widget">
+               
+                <h1>Bienvenue sur <br> Vélo Libre Service</h1>
+               
+                <iframe class="divHome divNone" src="https://www.youtube.com/embed/OnFaAfU5sVM"  allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              
               </div>
-            <div class="vignette vignette2 " >
-              <div>Etape 2</div>
-               <div class="vignetteDisplay">
-                  <img src="image/etape2.png" class="etapeGif">
-                </div>
-            </div>
-            <div class="vignette vignette3 " >
-              <div>Etape 3</div>
-               <div class="vignetteDisplay">
-                  <img src="image/etape1.gif" class="etapeGif">
-                </div>
-            </div>
-            <div class="vignette vignette4 " >
-              <div>Etape 4</div>
-               <div class="vignetteDisplay">
-                  <img src="image/etape2.png" class="etapeGif">
-                </div>
-            </div>
-            <div class="vignette vignette5 " >
-              <div>Etape 5</div>
-               <div class="vignetteDisplay">
-                  <img src="image/etape1.gif" class="etapeGif">
-                </div>
-            </div>
-
-      </div> 
-    
- 
-      <div class="button" >
-
-            <button id="preview" class="navbar-inverse">Précédent</button>
-            <button id="next" class="navbar-inverse" >Suivant</button>
-
-      </div>
-
-  </div>
-
-  
-
-  <!-- Section 2.4 Map -->
-  <div class="divMap divNone">
-
-	<div class="section-map " id="map">	</div>
-
-</div>
 
 
-  <!-- Section 2.5 Compte -->
-  <div class="divCompte divNone widget">
+              <!-- Section 2.2 Contact -->
+              <div class="divContact divNone widget">
+                 <div class="widget" id="widgetContactCorps">
 
-      <aside class="" id="divSmartphone">
-        <img src="image/avatar.png">
-        <div>Nom: </div>
-        <div>Prenom: </div>
-        <div>Mail: </div>
-        <button type="button" id="btnContact2"><i class="fas fa-envelope"></i> Nous contacter</button>
-       </aside>
+                        <form action="mailto:venomsnake06400@gmail.com" method="post" enctype="text/plain" class="col-md-12 col-sm-12 col-lg-12" id="formContact">
+
+                          Nom: <br>
+                          <input type="text" name="firstname">
+                          Prénom: <br>
+                          <input type="text" name="lastname">
+                          Mail: <br>
+                          <input type="text" name="mail">
+                          Votre message: <br>
+                          <textarea name="message" rows="10" cols="30">
+                        
+                          </textarea><br><br>
+                          <input type="submit" name="submit">
+                        </form>
+
+                  </div>
+              </div>
 
 
-  <div class="widget">
 
-    Mes reservations:
-    <div id="contentPanier"></div> 
 
-  </div>
+          <!-- Section 2.3 Tutoriel -->
+          <div class="col-md-12 col-sm-12 col-lg-12 divTuto divNone" id="tuto">
 
-  </div>
+              <div class="diaporama" id="diapo">
 
-</div>
+                    <div class="vignette vignette1" id="slide">
+                      <h2>Etape 1</h2>
+                        <div class="vignetteDisplay">
+                          <img src="image/etape1d.gif" alt="tutoEtape1" class="etapeGif">
+                        </div>
+                      </div>
+                    <div class="vignette vignette2 ">
+                      <h2>Etape 2</h2>
+                       <div class="vignetteDisplay">
+                          <img src="image/etape2d.gif" alt="tutoEtape2" class="etapeGif">
+                        </div>
+                    </div>
+                    <div class="vignette vignette3 " >
+                      <h2>Etape 3</h2>
+                       <div class="vignetteDisplay">
+                          <img src="image/etape3d.gif" alt="tutoEtape3" class="etapeGif">
+                        </div>
+                    </div>
+                    <div class="vignette vignette4 " >
+                      <h2>Etape 4</h2>
+                       <div class="vignetteDisplay">
+                          <img src="image/etape4d.gif" alt="tutoEtape4" class="etapeGif">
+                        </div>
+                    </div>
+                    <div class="vignette vignette5 " >
+                      <h2>Etape 5</h2>
+                       <div class="vignetteDisplay">
+                          <img src="image/etape5d.gif" alt="tutoEtape5" class="etapeGif">
+                        </div>
+                    </div>
+                
+              </div> 
+            
+         
+              <div class="button" >
+                    <button id="preview" class="navbar-inverse">Précédent</button>
+                    <button id="next" class="navbar-inverse" >Suivant</button>
+              </div>
+
+          </div>
+
+          
+
+          <!-- Section 2.4 Map -->
+          <div class="divMap divNone">
+
+        	   <div class="section-map " id="map">	</div>
+
+          </div>
+
+
+        <!-- Section 2.5 Compte -->
+
+          <div class="divCompte divNone widget" id="compteDesktop">
+
+              <aside class="" id="divSmartphone">
+
+                <img src="image/avatar.png" alt="avatar">
+                <div>Nom: </div>
+                <div>Prenom: </div>
+                <div>Mail: </div>
+                <button type="button" id="btnContactDesktop"><i class="fas fa-envelope"></i> Nous contacter</button>
+
+              </aside>
+
+              <div class="widget" id="divMyReservation">
+
+                <h1>Ma dernière réservation:</h1>
+                  <h2>Station:</h2>
+                  <div id="myLastReservation"></div> 
+                  <h2>Signature:</h2>
+                  <img src="image/transp.png" alt="signature" id="myLastSignature">
+
+              </div>
+              
+          </div>
+
+     </div>   
 
 </section>
 
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU9mnnfr0AWGnQCsoBN4LaQdDhI2PASrQ&libraries=visualization&libraries=drawing" id="script"></script>
-      <script type="text/javascript" src="js/markerclusterer.js"></script>
-      <script type="text/javascript" src="js/ObjetSlider.js"> </script>
-      <script type="text/javascript" src="js/ObjetSignature.js"></script>
-      <script type="text/javascript" src="js/ObjetDisplay.js"></script>
-      <script type="text/javascript" src="js/ObjetAjax.js"></script>
-      <script type="text/javascript" src="js/ObjetStorage.js"></script>
-      <script type="text/javascript" src="js/ObjetMap.js"></script>
-       <script type="text/javascript" src="js/ObjetChrono.js"></script>
-      <script type="text/javascript" src="js/indexJS.js"></script> 
-     
-      
-   
 
-  
-</script>
-    
-   
+      <!--JAVASCRIPT-->
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU9mnnfr0AWGnQCsoBN4LaQdDhI2PASrQ&libraries=visualization&libraries=drawing" id="script"></script>
+      <script src="js/markerclusterer.js"></script>
+      <script src="js/ObjetSlider.js"> </script>
+      <script src="js/ObjetSignature.js"></script>
+      <script src="js/ObjetDisplay.js"></script>
+      <script src="js/ObjetAjax.js"></script>
+      <script src="js/ObjetStorage.js"></script>
+      <script src="js/ObjetChrono.js"></script>
+      <script src="js/ObjetMap.js"></script>
+      <script src="js/indexJS.js"></script> 
+       
 </body>
-
 </html>

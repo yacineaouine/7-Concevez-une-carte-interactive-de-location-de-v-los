@@ -8,6 +8,8 @@ class Slider
 	{
 
 	//nom de la classe du diaporama	
+	this.idButtonLeft = idButtonLeft;
+	this.idButtonRight = idButtonRight;
 	this.className = document.getElementsByClassName(className);
 	this.idName = idName;
 	// variable contenant le nombre de clics sur next
@@ -15,13 +17,13 @@ class Slider
 	// variable contenant le nombre de clics sur preview
 
 	//bouton gauche
-	var boutonIdLeft = document.getElementById(idButtonLeft);
-	boutonIdLeft.addEventListener("click", (e) => {
+	var idButtonLeft = document.getElementById(idButtonLeft);
+	idButtonLeft.addEventListener("click", (e) => {
             this.slideLeft();
         });
 	//bouton droit
-	var boutonIdRight = document.getElementById(idButtonRight);
-	boutonIdRight.addEventListener("click", (e) => {
+	var idButtonRight = document.getElementById(idButtonRight);
+	idButtonRight.addEventListener("click", (e) => {
             this.slideRight();
         });	
 	//flèches clavier droite/gauche

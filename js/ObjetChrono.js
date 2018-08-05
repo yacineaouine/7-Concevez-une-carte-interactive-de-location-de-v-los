@@ -1,3 +1,11 @@
+/*
+Objet CHRONO: crée un chrono
+
+limit: temps du compte à rebour en ms,
+interTime: intervalle de temps en ms,
+event: evenement pour déclencher le chrono,
+idBtn: element déclencheur
+*/
 class Chrono
 {
 	constructor(limit, interTime, event, idBtn)
@@ -11,33 +19,29 @@ class Chrono
 
 		window['chronoDevice'] = document.getElementById('chronoDevice');
 		window['chronoIdDesktop'] = document.getElementById('chronoIdDesktop');
-		window['btnSignature'] = document.getElementById("btnSignature");
+		window['btnChrono'] = document.getElementById(idBtn);
 
 		//si il y a un evenement on lance le chrono
 		if(event != "load")
 		{
-			console.log(event);
-			idBtn.addEventListener(event, this.interval());
+			if(event)
+			{
+			btnChrono.addEventListener(event, this.interval());
+			}
+			else
+			{this.interval();}
 		}
-		//si l'evenement est load on relance le chrono
-		console.log(event);
 
-		if(event == "load")
+		//si l'evenement est load on relance le chrono
+		if(event == 'load')
 		{
 
 			if(sessionStorage.getItem('saveMinute') == 0 && sessionStorage.getItem('saveSeconde') == 0 || sessionStorage.getItem('saveChrono') == null)
-			{
-				delete this;
-			}
+			{this.interval();}
 
 			else
 			{this.interval();}
-
-			
-
 		}
-
-
 	}
 
 
@@ -54,18 +58,6 @@ class Chrono
 			chronoDevice.textContent += 'temps restant: '+min+' min '+sec+' sec';
 		}
 
-		/*else 
-		{	
-			/*console.log('chrono else');
-			var resultat = prompt('reservation en attente, Souhaitez-vous changer de station','Oui/Non');
-			if(resultat == "oui")
-			{
-				sessionStorage.clear();
-				chronoIdDesktop.textContent = "";
-			}
-		}*/
-
-
 		else 
 		{
 			window['interval'] = setInterval(this.display, this.interTime);
@@ -75,11 +67,6 @@ class Chrono
 			chronoIdDesktop.textContent += 'temps restant: '+min+' min '+sec+' sec';
 			chronoDevice.textContent += 'temps restant: '+min+' min '+sec+' sec';
 		}
-
-
-			
-		
-
 
 	}
 
@@ -120,15 +107,14 @@ class Chrono
 				chronoDevice.textContent += 'temps écoulé';	
 				chronoDevice.style.display = 'none';
 					
-				delete this;	
-				console.log(this);
+				document.location.reload();
 				
 			}
 				
 			
 	}
-
-
-	
 	
 }
+
+
+

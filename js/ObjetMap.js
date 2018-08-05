@@ -1,3 +1,12 @@
+/*
+Objet Map: crée une map avec marker et markersClusterer
+
+idMap: id de la div utilisé pour afficher la map,
+ville: choix de la ville centré,
+lat,lng: respectivement la latitude et la longitude de la ville,
+zoom: zoom souhaité au chargement de la carte valeur: de 1 (World) à 20 (Buildings),
+data: donnée attendu pour marker, sous format JSON
+*/
 
 class Map
 {
@@ -11,8 +20,8 @@ constructor(idMap,ville,lat,lng,zoom,data)
 		this.lng = lng;
 		this.zoom = zoom;
 		window['data'] = data;
+
 		
-	
   		window['map'] = map;
 
   		//creation de la map
@@ -80,17 +89,13 @@ initMapMarker()
 	                	//enleve l'animation à tous les markers
 			            for(var j = 0; j < markers.length; j++)
 					    {
-					            markers[j].setAnimation(null); 
+					        markers[j].setAnimation(null); 
 					           
 						}
 	                    	
 	                    if (marker.getAnimation() !== null)
 	                    {	                    		                 		
 			            	marker.setAnimation(null);
-
-			            	if(payment.style.display !== 'none')
-			            		{console.log('veuillez vider le panier avant')}
-			            	else{objStorage.clearItem();};
 	                    } 
 	                   
 	                    		
@@ -101,6 +106,9 @@ initMapMarker()
 				               		//place l'animation au marker cliqué
 				                    marker.setAnimation(google.maps.Animation.BOUNCE);
 				                    
+				                    //on ouvre le btn reserver
+				                    var btnReserver = document.getElementById('btnReserver');
+				                    btnReserver.style.display = 'block';
 
 				                    //ajoute les details
 				                    document.getElementById("statusDetails").textContent = data[i].status; 
@@ -116,39 +124,41 @@ initMapMarker()
         							//affiche la div reservation
 				                    document.getElementById("stationDetails").style.display = "flex";
 				                   
+				                   	//change couleur du back-ground selon status green/red
+									if(data[i].status === "OPEN")
+			            			{document.getElementById("stationDetails").style.backgroundColor = "green";}
+
+				        			else{document.getElementById("stationDetails").style.backgroundColor = "red";} 
 
 				                    //si il n'y a plus de vélo dans la station	                    
 									if(data[i].available_bikes===0)
 									{
 										marker.setAnimation(null);	
-										document.getElementById("veloDetails").style.color ="red";							 	
+										document.getElementById("veloDetails").style.color ="red";	
+										document.getElementById("nomDetails").style.color ="red";	
+										alert('aucun vélo disponible');	
+										btnReserver.style.display = 'none';			 	
 									}
 									
-
+									//si la station est ouverte et au moins un vélo est diponible, on peut éffectuer la réservation
 									else if(data[i].available_bikes>0 && data[i].status === "OPEN")
 									{
-									
-									document.getElementById("veloDetails").style.color ="white";	
-        							var contentPanierDesktop = document.getElementById("contentPanierDesktop");
-      								contentPanierDesktop.textContent += "";
-
-      								//objetSTORAGE appelé au click du marker
-									window['objStorage'] = new Storage("stations", data[i].name, data[i].available_bikes);	
-								
+										sessionStorage.setItem('stations', data[i].name);
+										document.getElementById("veloDetails").style.color = "white";
+										document.getElementById("nomDetails").style.color ="white";	
+        								var contentPanierDesktop = document.getElementById("contentPanierDesktop");
+      									contentPanierDesktop.textContent += "";
 								    }
 
 								    else
-								    	{alert('la station est fermé pour le moment')};
+								    	{
+								    		alert('la station est fermé pour le moment');
+								    		btnReserver.style.display = 'none';
+								    	}
 
 								   
 									                  
-						}
-
-						//change couleur du back-ground selon status green/red
-						if(data[i].status === "OPEN")
-            			{document.getElementById("stationDetails").style.backgroundColor = "green";}
-
-	        			else{document.getElementById("stationDetails").style.backgroundColor = "red";}  
+						} 
 
 	        				           
 	    	}
