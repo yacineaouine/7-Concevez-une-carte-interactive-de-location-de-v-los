@@ -8,17 +8,18 @@ idBtn: element déclencheur
 */
 class Chrono
 {
-	constructor(limit, interTime, event, idBtn)
+	constructor(minLimit, secLimit, interTime, event, idBtn)
 	{
-		this.limit = limit;
+		this.minLimit = minLimit;
+		this.secLimit = secLimit;
 		this.interTime = interTime;
 		this.event = event;
 		this.idBtn = idBtn;
-		window['min'] = this.limit/60000;
-		window['sec'] = 60;
+		window['min'] = minLimit;
+		window['sec'] = secLimit;
 
 		window['chronoDevice'] = document.getElementById('chronoDevice');
-		window['chronoIdDesktop'] = document.getElementById('chronoIdDesktop');
+		
 		window['btnChrono'] = document.getElementById(idBtn);
 
 		//si il y a un evenement on lance le chrono
@@ -40,33 +41,44 @@ class Chrono
 			{this.interval();}
 
 			else
-			{this.interval();}
+			{
+				this.interval();
+			}
 		}
 	}
 
 
 	interval()
-	{
+	{	
 
-		if(!sessionStorage.getItem("saveChrono"))
-		
-		{
-			window['interval'] = setInterval(this.display, this.interTime);
-			chronoIdDesktop.textContent = "";
-			chronoDevice.textContent = "";
-			chronoIdDesktop.textContent += 'temps restant: '+min+' min '+sec+' sec';
-			chronoDevice.textContent += 'temps restant: '+min+' min '+sec+' sec';
-		}
 
-		else 
-		{
-			window['interval'] = setInterval(this.display, this.interTime);
-			chronoIdDesktop.textContent = "";
-			chronoDevice.textContent = "";
-			sec = sessionStorage.getItem('saveSeconde');
-			chronoIdDesktop.textContent += 'temps restant: '+min+' min '+sec+' sec';
-			chronoDevice.textContent += 'temps restant: '+min+' min '+sec+' sec';
-		}
+			if(!sessionStorage.getItem("saveChrono"))
+			
+			{	if(this.interTime != null)
+				{
+				window['interval'] = setInterval(this.display, this.interTime);
+				chronoIdDesktop.textContent = "";
+				chronoDevice.textContent = "";
+				chronoIdDesktop.textContent += 'temps restant: '+min+' min '+sec+' sec';
+				chronoDevice.textContent += 'temps restant: '+min+' min '+sec+' sec';
+				}
+				else
+				{
+					console.log('interval clear');
+					clearInterval(interval);
+					
+				}
+			}
+
+			else 
+			{
+				window['interval'] = setInterval(this.display, this.interTime);
+				chronoIdDesktop.textContent = "";
+				chronoDevice.textContent = "";
+				sec = sessionStorage.getItem('saveSeconde');
+				chronoIdDesktop.textContent += 'temps restant: '+min+' min '+sec+' sec';
+				chronoDevice.textContent += 'temps restant: '+min+' min '+sec+' sec';
+			}
 
 	}
 
@@ -99,20 +111,25 @@ class Chrono
 		
 
 			if(min<0)
-			{				
+			{
+				window['chronoIdDesktop'] = document.getElementById('chronoIdDesktop');
+
 				chronoIdDesktop.textContent = '';
 				chronoIdDesktop.textContent += 'temps écoulé';
 				chronoIdDesktop.style.display = 'none'
 				chronoDevice.textContent = '';
 				chronoDevice.textContent += 'temps écoulé';	
 				chronoDevice.style.display = 'none';
-					
+				console.log('min<0');
+				this.clearChrono;	
 				document.location.reload();
+
 				
 			}
 				
 			
 	}
+
 	
 }
 

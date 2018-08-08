@@ -1,25 +1,30 @@
-/*
-Object Signature: créé un canvas pour signer
-
-idCanvas: id div utilisé pour le canvas,
-color: choix de la couleur du pixel,
-i,j: respectivement abscisse et ordonnée du "grain pixel"
-*/
-
 class Signature
 {
 
-	constructor (idCanvas, color, i , j)
+	constructor (idCanvas, color, i, j)
 	{
+		this.idCanvas =idCanvas;
 		this.color = color;
 		this.i = i;
 		this.j = j;
 
-		window['canvas'] = document.getElementById(idCanvas);
-		window['ctx'] = canvas.getContext("2d");
-		ctx.fillStyle = color;
-		
-  		//au focus on annule le scroll
+		// Variables :
+	window['canvas'] = document.getElementById(idCanvas);
+	window['ctx'] = canvas.getContext("2d");
+	ctx.fillStyle = color;
+	window['painting'] = false;
+	window['started'] = false;
+	window['width_brush'] = 5;
+	// Trait arrondi :
+	ctx.lineJoin = 'round';
+	ctx.lineCap = 'round';
+	//clearCanvas
+	var btnClearSignature = document.getElementById('btnClearSignature');
+	btnClearSignature.addEventListener("click", (e) => {this.clearCanvas();});
+	this.event();
+
+	//tactile
+	//au focus on annule le scroll
 		canvas.focus({preventScroll:true});
 
   		//device
@@ -27,18 +32,64 @@ class Signature
   		canvas.addEventListener("touchmove", this.getCoordinatesDevice);
   		canvas.addEventListener("touchmove", (evt) => {this.drawnDevice();});
 
-  		//desktop
-		canvas.addEventListener("mousemove", this.getCoordinates);
-		document.addEventListener("keypress", (e) => {this.keypressButton(e);});
-
-		//clearCanvas
-		var btnClearSignature = document.getElementById('btnClearSignature');
-		btnClearSignature.addEventListener("click", (e) => {this.clearCanvas();});
+	}
 	
+	event()
+	{
+			var x;
+			var y;
+			//var canvas = document.getElementById('signature');
+			// Click souris enfoncé sur le canvas, je dessine :
+			canvas.addEventListener("mousedown",(e) => {
+				painting = true;
+				// Coordonnées de la souris :
+				var w = document.getElementById('navigationMain');
+				x = e.clientX - canvas.offsetLeft - w.offsetWidth;
+				y = (scrollY + e.clientY) - canvas.offsetTop;
+				console.log(x);
+			});
+			
+			// Relachement du Click sur tout le document, j'arrête de dessiner :
+			document.addEventListener("mouseup",(e) => {
+				painting = false;
+				started = false;
+			});
+			
+			// Mouvement de la souris sur le canvas :
+			document.addEventListener("mousemove",(e) =>{
+				// Si je suis en train de dessiner (click souris enfoncé) :
+				if (painting) {
+					// Set Coordonnées de la souris :
+					var w = document.getElementById('navigationMain');
+					x = e.clientX - canvas.offsetLeft - w.offsetWidth; 
+					y = (scrollY + e.clientY) - canvas.offsetTop;
+					
+					// Dessine une ligne :
+					this.drawLine(x,y);
+				}
+			});
+	}
+			
+			// Fonction qui dessine une ligne :
+	drawLine(x,y)
+	 {
+				// Si c'est le début, j'initialise
+				if (!started) {
+					// Je place mon curseur pour la première fois :
+					ctx.beginPath();
+					ctx.moveTo(x, y);
+					started = true;
+				} 
+				// Sinon je dessine
+				else {
+					ctx.lineTo(x, y);
+			ctx.strokeStyle = this.color;
+			ctx.lineWidth = width_brush;
+			ctx.stroke();
+				}
 	}
 
-
-/*smartphone*/
+	/*smartphone*/
 	getCoordinatesDevice(evt){
 		var w = document.getElementById('navigationMain');
 		var z1 = screen.width;
@@ -53,8 +104,6 @@ class Signature
 			var panierDevice = document.getElementById('panierDevice');
 			var totalHeight = w.offsetHeight + btnReserver.offsetHeight
 			 + station.offsetHeight + titreStationDetails.offsetHeight + panierDevice.offsetHeight;
-			 console.log(totalHeight);
-			 console.log(panierDevice.offsetTop);
 			 
 			window['xd'] = evt.touches[0].clientX - canvas.offsetLeft;
 			window['yd'] = (scrollY + evt.touches[0].clientY) - totalHeight - 5;
@@ -73,41 +122,15 @@ class Signature
 	drawnDevice(){
 		
 		ctx.fillStyle = this.color;
-		ctx.fillRect(xd,yd,this.i,this.j);
+		ctx.fillRect(xd, yd, this.i, this.j);
 	}
 
-/*desktop*/	
-
-	getCoordinates(e){
-		var w = document.getElementById('navigationMain');
-
-		window['x'] =  e.clientX - canvas.offsetLeft - w.offsetWidth;
-		window['y'] = (scrollY + e.clientY) - canvas.offsetTop ;	
-	}
-  
-  	drawn(){
-		ctx.fillStyle = this.color;
-		ctx.fillRect(x,y,this.i,this.j);	
-  	}
-
-  	 keypressButton(e)
-	{
-
-		if(e.key === 'w')
-		{		
-			canvas.addEventListener("mousemove", this.drawn());
-		}
-
-	}
 
 	clearCanvas(){
 		console.log("clearCanvas");
-		ctx.clearRect(0,0,canvas.width, canvas.height);
+		ctx.clearRect(0,0, canvas.width, canvas.height);
 	}
-
-
-	
+			
+			
+			
 }
-
-
-

@@ -12,7 +12,6 @@ class AjaxCall
 
   			//création de la requête
   			var req = new XMLHttpRequest();
-        req.onreadystatechange = document.getElementById("imgSignature").textContent = this.responseText;
 
 		    req.open(type, url, true);
 
@@ -66,7 +65,7 @@ class AjaxCall
 		    else if(type==="GET")
         {
           req.send(null);
-          console.log('aucune donnée à envoyer');
+          
 			  };
 	}
 

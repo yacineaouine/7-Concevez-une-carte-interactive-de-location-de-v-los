@@ -192,6 +192,7 @@ ul{
 	text-align: center;
 	background-color: green;
 	color: white;
+	justify-content: center;
 }
 
 .reserver{
@@ -628,7 +629,6 @@ body{
 		    background-color: white;
 		    border-radius: 7px;
 		    margin: 10px;
-		    display: none;
 		}
 
 		#chronoDevice{

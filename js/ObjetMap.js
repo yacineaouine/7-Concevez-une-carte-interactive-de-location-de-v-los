@@ -143,11 +143,20 @@ initMapMarker()
 									//si la station est ouverte et au moins un vélo est diponible, on peut éffectuer la réservation
 									else if(data[i].available_bikes>0 && data[i].status === "OPEN")
 									{
+										sessionStorage.removeItem('stations');
 										sessionStorage.setItem('stations', data[i].name);
+										btnReserver.addEventListener('click', function(){
+											sessionStorage.removeItem('stationsReserver');
+											sessionStorage.setItem('stationsReserver', data[i].name);
+											if(!sessionStorage.getItem('saveChrono'))
+											{var objStorage = new Storage('stationsReserver', sessionStorage.getItem('stationsReserver'));}
+											});
+
 										document.getElementById("veloDetails").style.color = "white";
 										document.getElementById("nomDetails").style.color ="white";	
-        								var contentPanierDesktop = document.getElementById("contentPanierDesktop");
+										var contentPanierDesktop = document.getElementById("contentPanierDesktop");
       									contentPanierDesktop.textContent += "";
+
 								    }
 
 								    else
