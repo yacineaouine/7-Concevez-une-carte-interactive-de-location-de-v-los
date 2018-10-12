@@ -29,6 +29,9 @@ btnClearItemDevice.addEventListener('click', function(){
 
 
 
+
+
+
 //ObjetAJAX
  var dataGet = new AjaxCall("https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=4c0dd7bc629dffa5ae869d96fce6b4eec7760d7c", "GET", function dataJSON(reponse) {
  	
@@ -40,10 +43,6 @@ btnClearItemDevice.addEventListener('click', function(){
 var mapJS = new Map('map','lyon', 45.75, 4.85, 14, stations);
 
 });
-
-
-
-
 
 
 // on efface la session quand le chrono est terminé
@@ -68,7 +67,7 @@ if(!sessionStorage.getItem("stations") || sessionStorage.getItem("stations") == 
 	contentPanierDevice.textContent = "Choisir une station";//Device	
 };
 //ObjetCHRONO créé au click du btn Signature
-const objChrono = new Chrono(19,60, 1000);
+const objChrono = new Chrono(0,10, 1000);
 }
 });
 console.log('pasSavechrono');

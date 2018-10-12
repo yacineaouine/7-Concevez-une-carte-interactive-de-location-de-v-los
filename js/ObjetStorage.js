@@ -48,7 +48,7 @@ class Storage
 		sessionStorage.setItem(this.keyChoice,this.contents);
 
 		//ObjetSIGNATURE crée le canvas pour signer
-		var objSignature = new Signature("signature", "black", 5, 5);
+		var objSignature = new Signature("signature", "red", 5, 5);
 
 
 		//on update le panier

@@ -1,7 +1,8 @@
 /*
 Objet CHRONO: crée un chrono
 
-limit: temps du compte à rebour en ms,
+minLimit: minute du compte à rebour en min,
+secLimit = seconde du compte à rebour en sec;
 interTime: intervalle de temps en ms,
 event: evenement pour déclencher le chrono,
 idBtn: element déclencheur
@@ -121,7 +122,6 @@ class Chrono
 				chronoDevice.textContent += 'temps écoulé';	
 				chronoDevice.style.display = 'none';
 				console.log('min<0');
-				this.clearChrono;	
 				document.location.reload();
 
 				

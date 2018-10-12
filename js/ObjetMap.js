@@ -32,12 +32,7 @@ constructor(idMap,ville,lat,lng,zoom,data)
   		window['infoWindowGeo'] = new google.maps.InfoWindow;
 
   		this.initMapMarker();
-  		this.geolocation();
-  		
-  		
-  		
-
-  		
+  		this.geolocation();  		
 }
 
 
